@@ -6,6 +6,7 @@
 
 function loadStories() {
   
+  require('../js/atoms/Icon.stories.js');
   require('../js/atoms/Typography.stories.js');
   
 }

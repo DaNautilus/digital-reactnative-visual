@@ -10,7 +10,7 @@ import Card from './Card';
 import Page from './Page';
 
 
-storiesOf('Text', module)
+storiesOf('Typography', module)
   .addDecorator(getStory =>
     <Page>
       <Card>
@@ -18,7 +18,7 @@ storiesOf('Text', module)
       </Card>
     </Page>
   )
-  .add('with visual text', () =>
+  .add('Overview', () =>
     <View>
       <H1>Typography H1</H1>
       <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget ornare elit. Praesent et turpis dictum, imperdiet enim non, pulvinar enim.</P>

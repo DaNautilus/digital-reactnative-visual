@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 
 const style = {
   main: {
@@ -14,9 +14,9 @@ const style = {
 
 export default function Page(props) {
   return (
-    <View style={style.main}>
+    <ScrollView style={style.main}>
       {props.children}
-    </View>
+    </ScrollView>
   );
 }
 
