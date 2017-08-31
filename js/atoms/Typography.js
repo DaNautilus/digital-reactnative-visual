@@ -4,7 +4,7 @@ import { Text as RText } from 'react-native';
 import * as colors from '../colors';
 import * as vars from '../vars';
 
-export function Text({ size = 16, bold, label, light, info, success, warning, error, children, style = {}, ...props }) {
+export function Text({ size = 16, marginBottom = false, marginTop = false, bold, label, light, info, success, warning, error, children, style = {}, ...props }) {
 
   let color = colors.textGray;
   if (light) color = colors.lightGray;
@@ -17,6 +17,8 @@ export function Text({ size = 16, bold, label, light, info, success, warning, er
     fontFamily: bold ? vars.poppins.semibold : vars.poppins.light,
     color,
     fontSize: size,
+    marginBottom: marginBottom ? 10 : 0,
+    marginTop: marginTop ? 10 : 0,
   }
 
   return (
@@ -24,18 +26,18 @@ export function Text({ size = 16, bold, label, light, info, success, warning, er
   )
 }
 
-export function H1({ ...props }) {
-  return <Text {...props} size={21} style={{ lineHeight: 30, marginBottom: 10 }} />
+export function H1({ marginBottom = true, ...props }) {
+  return <Text {...props} size={21} marginBottom={marginBottom} style={{ lineHeight: 30 }} />
 }
 
-export function P({ ...props }) {
-  return <Text {...props} style={{ lineHeight: 22 }} />
+export function P({ marginBottom = true, ...props }) {
+  return <Text {...props} marginBottom={marginBottom} style={{ lineHeight: 22 }} />
 }
 
-export function H2({ style, ...props }) {
-  return <Text {...props} size={21}  />
+export function Label({ style, small, dark = false, ...props }) {
+  return <Text {...props} size={small ? 12 : 16} label={!dark} />
 }
 
-export function Label({ style, ...props }) {
-  return <Text {...props} size={12}  />
+export function Hint({ style, marginBottom = true,  ...props }) {
+  return <Text {...props} marginBottom={marginBottom} size={14} label />
 }
