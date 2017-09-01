@@ -44,7 +44,7 @@ storiesOf('Avatar', module)
         <Avatar src="https://avatars2.githubusercontent.com/u/977772" xsmall />
         <Avatar src="https://avatars2.githubusercontent.com/u/977772" circle xsmall />
       </View>
-      <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+      <View style={{ alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
         <Avatar src="https://avatars2.fail.githubusercontent.com/u/977772" name='Jan Mühlemann' />
       </View>
     </View>
