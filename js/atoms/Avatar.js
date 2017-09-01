@@ -5,7 +5,7 @@ import ColorHash from 'color-hash';
 
 import styles from './Avatar.style.js';
 import * as vars from '../vars';
-import * as colors from '../colors';
+import { getColor } from '../utils/colors';
 
 const colorHash = new ColorHash({ saturation: [0.5, 0.65] });
 
@@ -18,7 +18,7 @@ export default class Avatar extends React.Component {
   }
 
   render() {
-    const { name = '', width = 44, isUser, src, headers = {}, circle, small, xsmall, style, editable } = this.props;
+    const { name = '', width = 44, src, headers = {}, circle, small, xsmall, style, editable, ...rest } = this.props;
     const { failedLoading } = this.state;
 
     let initials = '';
@@ -32,7 +32,7 @@ export default class Avatar extends React.Component {
     initials = initials.length > 3 ? initials.substring(0, 3) : initials;
 
     let bg = colorHash.hex(name);
-    if (isUser) bg = colors.blue;
+    bg = getColor(rest, bg);
 
     if (!initials) initials = '...';
 
