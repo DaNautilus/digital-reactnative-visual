@@ -45,6 +45,12 @@ storiesOf('Avatar', module)
         <Avatar name='Adriano Raiano' darkGray circle />
       </View>
       <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Avatar icon="icon-news" lightGray circle />
+        <Avatar icon="icon-news" borderGray circle />
+        <Avatar icon="icon-news" labelGray circle />
+        <Avatar icon="icon-news" darkGray circle />
+      </View>
+      <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
         <Avatar name='Adriano Raiano' />
         <Avatar name='Adriano Raiano' circle />
       </View>

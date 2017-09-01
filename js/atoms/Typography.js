@@ -1,18 +1,12 @@
 import React from 'react';
 import { Text as RText } from 'react-native';
 
-import * as colors from '../colors';
+import { getColor } from '../utils/colors';
 import * as vars from '../vars';
 
-export function Text({ size = 16, marginBottom = false, marginTop = false, bold, label, light, info, success, warning, error, children, style = {}, ...props }) {
+export function Text({ size = 16, marginBottom = false, marginTop = false, bold, children, style = {}, ...props }) {
 
-  let color = colors.textGray;
-  if (light) color = colors.lightGray;
-  if (label) color = colors.labelGray;
-  if (info) color = colors.blue;
-  if (success) color = colors.green;
-  if (warning) color = colors.orange;
-  if (error) color = colors.red;
+  const color = getColor(props);
   const baseStyle = {
     fontFamily: bold ? vars.sansserif.semibold : vars.sansserif.light,
     color,

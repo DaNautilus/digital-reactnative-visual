@@ -4,6 +4,7 @@ import { Text } from './Typography';
 import ColorHash from 'color-hash';
 
 import styles from './Avatar.style.js';
+import Icon from './Icon';
 import * as vars from '../vars';
 import { getColor } from '../utils/colors';
 
@@ -18,7 +19,7 @@ export default class Avatar extends React.Component {
   }
 
   render() {
-    const { name = '', width = 44, src, headers = {}, circle, small, xsmall, style, editable, ...rest } = this.props;
+    const { name = '', width = 44, src, icon, headers = {}, circle, small, xsmall, style, editable, ...rest } = this.props;
     const { failedLoading } = this.state;
 
     let initials = '';
@@ -62,9 +63,17 @@ export default class Avatar extends React.Component {
       );
     }
 
+    if (icon) {
+      return (
+        <View style={[styles.container, additionalContainerStyle, style]}>
+          <Icon name={icon} white={!rest.lightGray && !rest.borderGray} />
+        </View>
+      );
+    }
+
     return (
       <View style={[styles.container, additionalContainerStyle, style]}>
-        <Text style={[styles.text, additionalTextStyle]}>{initials}</Text>
+        <Text style={additionalTextStyle} white={!rest.lightGray && !rest.borderGray}>{initials}</Text>
       </View>
     );
   }
