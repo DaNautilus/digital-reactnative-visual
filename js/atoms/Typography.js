@@ -14,7 +14,7 @@ export function Text({ size = 16, marginBottom = false, marginTop = false, bold,
   if (warning) color = colors.orange;
   if (error) color = colors.red;
   const baseStyle = {
-    fontFamily: bold ? vars.poppins.semibold : vars.poppins.light,
+    fontFamily: bold ? vars.sansserif.semibold : vars.sansserif.light,
     color,
     fontSize: size,
     marginBottom: marginBottom ? 10 : 0,
