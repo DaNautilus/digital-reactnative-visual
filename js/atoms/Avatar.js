@@ -18,7 +18,7 @@ export default class Avatar extends React.Component {
   }
 
   render() {
-    const { name = '', width = 50, isUser, src, headers = {}, circle, small, xsmall, style, editable } = this.props;
+    const { name = '', width = 44, isUser, src, headers = {}, circle, small, xsmall, style, editable } = this.props;
     const { failedLoading } = this.state;
 
     let initials = '';

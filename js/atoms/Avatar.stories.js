@@ -19,24 +19,24 @@ storiesOf('Avatar', module)
     </Page>
   )
   .add('samples', () => (
-    <View style={{ flex: 1, paddingTop: 40, justifyContent: 'space-around' }}>
+    <View style={{ flex: 1, justifyContent: 'space-around' }}>
       <View style={{ alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
         <Avatar name='Adriano Raiano' isUser />
         <Avatar name='Adriano Raiano' isUser circle />
       </View>
-      <View style={{ alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+      <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
         <Avatar name='Adriano Raiano' />
         <Avatar name='Adriano Raiano' circle />
       </View>
-      <View style={{ alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+      <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
         <Avatar name='Jasper Woudenberg' small />
         <Avatar name='Jasper Woudenberg' small circle />
       </View>
-      <View style={{ alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+      <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
         <Avatar name='Jan Mühlemann' xsmall />
         <Avatar name='Jan Mühlemann' xsmall circle />
       </View>
-      <View style={{ alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+      <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
         <Avatar src="https://avatars2.githubusercontent.com/u/977772" />
         <Avatar src="https://avatars2.githubusercontent.com/u/977772" circle />
         <Avatar src="https://avatars2.githubusercontent.com/u/977772" small />
@@ -44,7 +44,7 @@ storiesOf('Avatar', module)
         <Avatar src="https://avatars2.githubusercontent.com/u/977772" xsmall />
         <Avatar src="https://avatars2.githubusercontent.com/u/977772" circle xsmall />
       </View>
-      <View style={{ alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+      <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
         <Avatar src="https://avatars2.fail.githubusercontent.com/u/977772" name='Jan Mühlemann' />
       </View>
     </View>
