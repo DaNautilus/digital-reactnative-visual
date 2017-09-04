@@ -6,7 +6,7 @@ import ColorHash from 'color-hash';
 import styles from './Avatar.style.js';
 import Icon from './Icon';
 import * as vars from '../vars';
-import { getColor } from '../utils/colors';
+import { getColor, lightenDarkenColor } from '../utils/colors';
 
 const colorHash = new ColorHash({ saturation: [0.5, 0.65] });
 
@@ -19,7 +19,7 @@ export default class Avatar extends React.Component {
   }
 
   render() {
-    const { name = '', width = 44, src, icon, headers = {}, circle, small, xsmall, style, editable, ...rest } = this.props;
+    const { name = '', width = 44, border, src, icon, headers = {}, circle, xlarge, large, small, xsmall, style, editable, ...rest } = this.props;
     const { failedLoading } = this.state;
 
     let initials = '';
@@ -35,16 +35,32 @@ export default class Avatar extends React.Component {
     let bg = colorHash.hex(name);
     bg = getColor(rest, bg);
 
+    const borderColor = getColor({ [border]: border }, bg);
+
     if (!initials) initials = '...';
 
     let finalWidth = width;
+    if (xlarge) finalWidth = 96;
+    if (large) finalWidth = 66;
     if (small) finalWidth = 36;
-    if (xsmall) finalWidth = 32;
+    if (xsmall) finalWidth = 26;
+    //if (border) finalWidth = finalWidth - 2;
     const additionalContainerStyle = {
       backgroundColor: src && !failedLoading ? 'transparent' : bg,
       width: finalWidth,
       height: finalWidth,
-      borderRadius: circle ? finalWidth / 2 : 0
+      borderRadius: circle ? finalWidth / 2 : 0,
+    }
+    const additionalBorderStyle = {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: finalWidth,
+      height: finalWidth,
+      borderWidth: xlarge ? 4 : large ? 3 : 2,
+      borderColor: borderColor,
+      borderRadius: circle ? finalWidth / 2 : 0,
+      opacity: src && !failedLoading ? 0.66 : 1
     }
     const additionalTextStyle = {
       fontSize: (small || xsmall) ? 12 : 16,
@@ -59,6 +75,9 @@ export default class Avatar extends React.Component {
             style={additionalContainerStyle}
             source={{uri: src, headers}}
           />
+          {
+            border && <View style={additionalBorderStyle} />
+          }
         </View>
       );
     }
@@ -67,6 +86,9 @@ export default class Avatar extends React.Component {
       return (
         <View style={[styles.container, additionalContainerStyle, style]}>
           <Icon name={icon} white={!rest.lightGray && !rest.borderGray} />
+          {
+            border && <View style={additionalBorderStyle} />
+          }
         </View>
       );
     }
@@ -74,6 +96,9 @@ export default class Avatar extends React.Component {
     return (
       <View style={[styles.container, additionalContainerStyle, style]}>
         <Text style={additionalTextStyle} white={!rest.lightGray && !rest.borderGray}>{initials}</Text>
+        {
+          border && <View style={additionalBorderStyle} />
+        }
       </View>
     );
   }

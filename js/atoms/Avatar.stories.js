@@ -45,6 +45,12 @@ storiesOf('Avatar', module)
         <Avatar name='Adriano Raiano' darkGray circle />
       </View>
       <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Avatar icon="icon-news" info circle />
+        <Avatar icon="icon-news" error circle />
+        <Avatar icon="icon-news" warning circle />
+        <Avatar icon="icon-news" success circle />
+      </View>
+      <View style={{ marginBottom: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
         <Avatar icon="icon-news" lightGray circle />
         <Avatar icon="icon-news" borderGray circle />
         <Avatar icon="icon-news" labelGray circle />
@@ -70,8 +76,36 @@ storiesOf('Avatar', module)
         <Avatar src="https://avatars2.githubusercontent.com/u/977772" xsmall />
         <Avatar src="https://avatars2.githubusercontent.com/u/977772" circle xsmall />
       </View>
-      <View style={{ alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+      <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
         <Avatar src="https://avatars2.fail.githubusercontent.com/u/977772" name='Jan Mühlemann' />
+      </View>
+      <View style={{ marginBottom: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Avatar src="https://avatars2.githubusercontent.com/u/977772" border="info"/>
+        <Avatar src="https://avatars2.githubusercontent.com/u/977772" circle border="error" />
+        <Avatar src="https://avatars2.githubusercontent.com/u/977772" small border="warning" />
+        <Avatar src="https://avatars2.githubusercontent.com/u/977772" circle small border="success" />
+        <Avatar src="https://avatars2.githubusercontent.com/u/977772" xsmall border="success" />
+        <Avatar src="https://avatars2.githubusercontent.com/u/977772" circle xsmall border="success" />
+      </View>
+      <View style={{ marginBottom: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Avatar icon="icon-news" lightGray circle border="info" />
+        <Avatar icon="icon-news" borderGray circle border="error" />
+        <Avatar icon="icon-news" labelGray circle border="warning" />
+        <Avatar icon="icon-news" darkGray circle border="success" />
+      </View>
+      <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Avatar name='Adriano Raiano'  border="info" />
+        <Avatar name='Adriano Raiano' circle border="error"  />
+        <Avatar name='Jasper Woudenberg' small border="warning"  />
+        <Avatar name='Jasper Woudenberg' small circle border="success"  />
+        <Avatar name='Jan Mühlemann' xsmall border="success"  />
+        <Avatar name='Jan Mühlemann' xsmall circle border="success"  />
+      </View>
+      <View style={{ marginVertical: 10, alignSelf: 'stretch', flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
+        <Avatar src="https://avatars2.githubusercontent.com/u/977772" name='Jan Mühlemann' xlarge border="success" />
+        <Avatar src="https://avatars2.githubusercontent.com/u/977772" name='Jan Mühlemann' xlarge circle border="success" />
+        <Avatar src="https://avatars2.githubusercontent.com/u/977772" name='Jan Mühlemann' large border="success" />
+        <Avatar src="https://avatars2.githubusercontent.com/u/977772" name='Jan Mühlemann' large circle border="success" />
       </View>
     </View>
   ));
