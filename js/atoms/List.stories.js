@@ -381,7 +381,7 @@ storiesOf('List', module)
   //   <CenterView>{getStory()}</CenterView>
   // ))
   .add('simple', () => (
-    <View style={{ marginTop: 20 }}>
+    <View>
       <List
         data={persons}
         renderRow={(rowData, sectionId, rowId) => {
@@ -395,7 +395,7 @@ storiesOf('List', module)
     </View>
   ))
   .add('with Sections', () => (
-    <View style={{ marginTop: 20 }}>
+    <View>
       <List
         withSections
         data={getData(persons)}
@@ -410,26 +410,21 @@ storiesOf('List', module)
     </View>
   ))
   .add('with Sections more infos', () => (
-    <View style={{ marginTop: 20 }}>
+    <View>
       <List
         withSections
         data={getData(persons)}
         renderRow={(rowData, sectionId, rowId) => {
           return (
-            <List.Item onPress={action('clicked-item')} success={rowData.firstname.charAt(0) === "J"} warning={rowData.firstname.charAt(0) === "L"}>
-              <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Avatar icon={"icon-badge"} circle lightGray style={{ marginRight: 10 }} />
-                  <View style={{ flexDirection: 'column' }}>
-                    <Text>{`${rowData.firstname} ${rowData.lastname}`}</Text>
-                    <Hint marginBottom={false}>{`lorem ipsum`}</Hint>
-                  </View>
-                </View>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Icon name="icon-profile" style={{ marginRight: 10 }} />
-                </View>
-              </View>
-            </List.Item>
+            <List.Item
+              onPress={action('clicked-item')}
+              success={rowData.firstname.charAt(0) === "J"}
+              warning={rowData.firstname.charAt(0) === "L"}
+              title={`${rowData.firstname} ${rowData.lastname}`}
+              text="lorem ipsum dolores opsi quantum oretasi."
+              icon="icon-badge"
+              rightIcon="icon-profile"
+            />
           );
         }}
       />

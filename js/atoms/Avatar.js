@@ -6,7 +6,7 @@ import ColorHash from 'color-hash';
 import styles from './Avatar.style.js';
 import Icon from './Icon';
 import * as vars from '../vars';
-import { getColor, lightenDarkenColor } from '../utils/colors';
+import { getColor } from '../utils/colors';
 
 const colorHash = new ColorHash({ saturation: [0.5, 0.65] });
 
