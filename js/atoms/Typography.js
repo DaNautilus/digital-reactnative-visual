@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text as RText, View } from 'react-native';
+import { Text as RText } from 'react-native';
 
 import { getColor } from '../utils/colors';
 import * as vars from '../vars';
@@ -12,7 +12,7 @@ export function Text({ size = 16, marginBottom = false, marginTop = false, bold,
     color,
     fontSize: size,
     marginBottom: marginBottom ? 10 : 0,
-    marginTop: marginTop ? 10 : 0,
+    marginTop: marginTop ? 10 : 0
   }
 
   return (
@@ -21,21 +21,17 @@ export function Text({ size = 16, marginBottom = false, marginTop = false, bold,
 }
 
 export function H1({ marginBottom = true, ...props }) {
-  return <Text {...props} size={21} marginBottom={marginBottom} style={{ lineHeight: 30 }} />
+  return <Text size={21} marginBottom={marginBottom} style={{ lineHeight: 30 }} {...props}  />
 }
 
 export function P({ marginBottom = true, ...props }) {
-  return (
-    <View style={{ width: '100%' }}>
-      <Text {...props} marginBottom={marginBottom} style={{ lineHeight: 22 }} />
-    </View>
-  )
+  return <Text marginBottom={marginBottom} style={{ lineHeight: 22 }} {...props} />
 }
 
 export function Label({ style, small, dark = false, ...props }) {
-  return <Text {...props} size={small ? 12 : 16} label={!dark} />
+  return <Text size={small ? 12 : 16} label={!dark} {...props} />
 }
 
 export function Hint({ style, marginBottom = true,  ...props }) {
-  return <Text {...props} marginBottom={marginBottom} size={14} label />
+  return <Text marginBottom={marginBottom} size={14} label {...props} />
 }

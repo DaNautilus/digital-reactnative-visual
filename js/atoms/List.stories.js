@@ -421,7 +421,7 @@ storiesOf('List', module)
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <Avatar icon={"icon-badge"} circle lightGray style={{ marginRight: 10 }} />
                   <View style={{ flexDirection: 'column' }}>
-                    <Text marginBottom={false}>{`${rowData.firstname} ${rowData.lastname}`}</Text>
+                    <Text>{`${rowData.firstname} ${rowData.lastname}`}</Text>
                     <Hint marginBottom={false}>{`lorem ipsum`}</Hint>
                   </View>
                 </View>
