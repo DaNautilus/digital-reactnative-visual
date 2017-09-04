@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text as RText } from 'react-native';
+import { Text as RText, View } from 'react-native';
 
 import { getColor } from '../utils/colors';
 import * as vars from '../vars';
@@ -25,7 +25,11 @@ export function H1({ marginBottom = true, ...props }) {
 }
 
 export function P({ marginBottom = true, ...props }) {
-  return <Text {...props} marginBottom={marginBottom} style={{ lineHeight: 22 }} />
+  return (
+    <View style={{ width: '100%' }}>
+      <Text {...props} marginBottom={marginBottom} style={{ lineHeight: 22 }} />
+    </View>
+  )
 }
 
 export function Label({ style, small, dark = false, ...props }) {
