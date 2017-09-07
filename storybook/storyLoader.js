@@ -10,6 +10,7 @@ function loadStories() {
   require('../js/atoms/Button.stories.js');
   require('../js/atoms/Icon.stories.js');
   require('../js/atoms/List.stories.js');
+  require('../js/atoms/Textfield.stories.js');
   require('../js/atoms/Typography.stories.js');
   
 }
