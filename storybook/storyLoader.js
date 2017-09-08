@@ -8,6 +8,7 @@ function loadStories() {
   
   require('../js/atoms/Avatar.stories.js');
   require('../js/atoms/Button.stories.js');
+  require('../js/atoms/Checkbox.stories.js');
   require('../js/atoms/Icon.stories.js');
   require('../js/atoms/List.stories.js');
   require('../js/atoms/Textfield.stories.js');
