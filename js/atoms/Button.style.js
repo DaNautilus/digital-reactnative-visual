@@ -14,10 +14,6 @@ export default StyleSheet.create({
     minWidth: 160,
     maxWidth: 160,
   },
-  containerIconButton: {
-    width: 50,
-    height: 50,
-  },
   // withoutShadow: {
   //   flex: 0,
   //   justifyContent: 'center',

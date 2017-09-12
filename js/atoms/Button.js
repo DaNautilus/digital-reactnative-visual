@@ -12,7 +12,7 @@ import * as colors from '../colors'
 
 const systemButtonOpacity = 0.6;
 
-class PrimitiveButton extends Component {
+export class PrimitiveButton extends Component {
   render() {
     const { block, icon, foreColor, backgroundColor, borderColor, marginRight, marginLeft } = this.props;
 
@@ -59,34 +59,25 @@ class PrimitiveButton extends Component {
   }
 
   _renderChildren() {
-    const { icon, foreColor, asIconButton, block, disabled } = this.props;
+    const { icon, foreColor, block, disabled, iconSize } = this.props;
 
     const iconContainerStyle = {
       flex: 0,
-      flexDirection: asIconButton ? 'column' : 'row',
+      flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
       maxWidth: block ? null : 110
     };
 
     const iconStyle = {
-      marginRight: asIconButton ? 0 : 6,
-      marginBottom: asIconButton ? 4 : 1
+      marginRight: 6,
+      marginBottom: 1
     };
-
-    if (icon && asIconButton) {
-      return (
-        <View style={iconContainerStyle}>
-          {this._renderGroupedChildren()}
-          <Icon name={icon} color={foreColor} disabled={disabled} style={iconStyle}/>
-        </View>
-      )
-    }
 
     if (icon) {
       return (
-        <View style={iconContainerStyle}>
-          <Icon name={icon} color={foreColor} disabled={disabled} style={iconStyle}/>
+        <View style={[iconContainerStyle, this.props.iconContainerStyle]}>
+          <Icon size={iconSize} name={icon} color={foreColor} disabled={disabled} style={[iconStyle, this.props.iconStyle]}/>
           {this._renderGroupedChildren()}
         </View>
       )
@@ -95,10 +86,9 @@ class PrimitiveButton extends Component {
   }
 
   _renderGroupedChildren() {
-    let { disabled, asIconButton, foreColor } = this.props;
+    let { disabled, foreColor, numberOfLines, textStyle } = this.props;
     let style = [
       styles.text,
-      asIconButton ? styles.textIconButton : null,
       foreColor ? { color: foreColor } : null,
       this.props.style
     ];
@@ -107,7 +97,7 @@ class PrimitiveButton extends Component {
 
     let children = coalesceNonElementChildren(childs, (children, index) => {
       return (
-        <Text key={index} style={style} numberOfLines={1} ellipsizeMode={'tail'}>
+        <Text key={index} style={[style, textStyle]} numberOfLines={numberOfLines || 1} ellipsizeMode={'tail'}>
           { children.map(c => typeof c === 'string' ? c.toUpperCase() : c) }
         </Text>
       );
@@ -136,7 +126,7 @@ class PrimitiveButton extends Component {
 
 class Button extends Component {
   render() {
-    const { asIconButton, icon, primary, secondary, tertiary, block, disabled, marginRight, marginLeft, offlineAware, isOffline } = this.props;
+    const { icon, primary, secondary, tertiary, block, disabled, marginRight, marginLeft, offlineAware, isOffline } = this.props;
 
     const finalDisabled = disabled || offlineAware && isOffline();
 
