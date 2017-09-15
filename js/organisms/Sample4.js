@@ -30,9 +30,9 @@ export default class App extends Component {
     const { children, ...rest } = this.props;
 
     const avatarScale = this.state.scrollY.interpolate({
-      inputRange: [0, HEADER_SCROLL_DISTANCE / 4, HEADER_SCROLL_DISTANCE],
-      outputRange: [1, 1, 0],
-      extrapolate: 'clamp',
+      inputRange: [-10, 0, HEADER_SCROLL_DISTANCE / 4, HEADER_SCROLL_DISTANCE],
+      outputRange: [1.25, 1, 1, 0],
+      //extrapolate: 'clamp',
     });
     const avatarOpacity = this.state.scrollY.interpolate({
       inputRange: [0, 10, (HEADER_SCROLL_DISTANCE / 10) * 6],
@@ -49,6 +49,11 @@ export default class App extends Component {
       inputRange: [0, 49, HEADER_SCROLL_DISTANCE],
       outputRange: [0, 0, -54],
       extrapolate: 'clamp',
+    });
+    const bgScale = this.state.scrollY.interpolate({
+      inputRange: [-10, 0, HEADER_SCROLL_DISTANCE],
+      outputRange: [1.2, 1, 1],
+      //extrapolate: 'clamp',
     });
 
     return (
@@ -84,6 +89,7 @@ export default class App extends Component {
               {
                 transform: [
                   { translateY: bgTranslate },
+                  { scale: bgScale }
                 ],
               },
             ]}
