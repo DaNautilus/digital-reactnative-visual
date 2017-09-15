@@ -57,7 +57,7 @@ export default class Avatar extends React.Component {
       left: 0,
       width: finalWidth,
       height: finalWidth,
-      borderWidth: xlarge ? 4 : large ? 3 : 2,
+      borderWidth: finalWidth / 20,
       borderColor: borderColor,
       borderRadius: circle ? finalWidth / 2 : 0,
       opacity: src && !failedLoading ? 0.66 : 1

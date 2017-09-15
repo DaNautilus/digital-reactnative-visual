@@ -8,16 +8,21 @@ import { linkTo } from '@storybook/addon-links';
 import Sample3 from './Sample3';
 import Sample1 from './Sample1';
 import Sample2 from './Sample2';
+import Sample4 from './Sample4';
 import * as colors from '../colors';
+import Page from '../atoms/Page';
+import Card from '../atoms/Card';
+import { H1, H2, P, Label, Hint } from '../atoms/Typography';
 
 storiesOf('CollapsibleHeaderView', module)
-  // .addDecorator(getStory =>
-  //   <Page>
-  //     <Card>
-  //       {getStory()}
-  //     </Card>
-  //   </Page>
-  // )
+  .addDecorator(getStory =>
+    <View style={{ flex: 1 }}>
+      <View style={{ height: 60, backgroundColor: '#003594' }} />
+      <View style={{ flex: 1, backgroundColor: '#ededeb'}}>
+        {getStory()}
+      </View>
+    </View>
+  )
   .add('samples', () => (
     <Sample1 />
 
@@ -29,4 +34,29 @@ storiesOf('CollapsibleHeaderView', module)
   .add('samples 3', () => (
     <Sample3 />
 
+  ))
+  .add('samples 4', () => (
+    <Sample4
+      src="https://avatars2.githubusercontent.com/u/977772"
+      border="success"
+    >
+      <Card>
+        <H1>Typography H1</H1>
+        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget ornare elit. Praesent et turpis dictum, imperdiet enim non, pulvinar enim.</P>
+        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget ornare elit. Praesent et turpis dictum, imperdiet enim non, pulvinar enim.</P>
+        <Label>Label Username:</Label>
+        <P>jamuhl (Jan Mühlemann)</P>
+        <Label info>Label Username:</Label>
+        <P>jamuhl (Jan Mühlemann)</P>
+        <Label success>Label Username:</Label>
+        <P>jamuhl (Jan Mühlemann)</P>
+        <Label warning>Label Username:</Label>
+        <P>jamuhl (Jan Mühlemann)</P>
+        <Label error>Label Username:</Label>
+        <P>jamuhl (Jan Mühlemann)</P>
+        <Hint>Hint Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget ornare elit. Praesent et turpis dictum, imperdiet enim non, pulvinar enim.</Hint>
+        <Label small dark>Label Small for tabs (dark),...</Label>
+        <Label small>Label Small (light),...</Label>
+      </Card>
+    </Sample4>
   ));
