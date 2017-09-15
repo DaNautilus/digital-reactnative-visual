@@ -40,9 +40,9 @@ export default class App extends Component {
       extrapolate: 'clamp',
     });
     const avatarTranslate = this.state.scrollY.interpolate({
-      inputRange: [0, 1, HEADER_SCROLL_DISTANCE / 4, HEADER_SCROLL_DISTANCE],
-      outputRange: [0, 0, -30, -54],
-      extrapolate: 'clamp',
+      inputRange: [-10, 0, 1, HEADER_SCROLL_DISTANCE / 4, HEADER_SCROLL_DISTANCE],
+      outputRange: [5, 0, 0, -30, -54],
+      //extrapolate: 'clamp',
     });
 
     const bgTranslate = this.state.scrollY.interpolate({
