@@ -51,7 +51,6 @@ export default class List extends Component {
       <SectionList
         ref="listView"
         refreshControl={RefreshComponent}
-        automaticallyAdjustContentInsets={false}
         sections={data}
         renderItem={renderItem}
         renderSectionHeader={withSections ? renderSectionHeader || this._renderSectionHeader : null}

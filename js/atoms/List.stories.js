@@ -11,7 +11,7 @@ import { Text, P, Hint } from './Typography';
 import Icon from './Icon';
 import Avatar from './Avatar';
 
-const persons = [
+export const persons = [
   {
     "_id": "585ba6560732f94138d71f82",
     "firstname": "Keller",
@@ -319,7 +319,7 @@ const persons = [
   }
 ]
 
-function getData(persons) {
+export function getData(persons) {
   let data = {};
   let sectionIds = [];
 
