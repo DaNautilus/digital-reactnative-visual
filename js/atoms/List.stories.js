@@ -332,7 +332,13 @@ function getData(persons) {
     data[section].push(person);
   });
 
-  return { data, sectionIds: sectionIds.sort() };
+  const ret = sectionIds.sort().reduce((mem, id) => {
+    const items = data[id];
+    mem.push({ data: items, title: id });
+    return mem;
+  }, []);
+
+  return ret;
 }
 
 class ReloadSample extends Component {
@@ -362,11 +368,12 @@ class ReloadSample extends Component {
           onRefresh={this.reload}
           isRefreshing={reloading}
           refreshDescription="Refreshing persons"
+          keyExtractor={(item, index) => item._id}
           data={getData(persons)}
-          renderRow={(rowData, sectionId, rowId) => {
+          renderItem={({ item }) => {
             return (
-              <List.Item onPress={action('clicked-item')} icon="icon-persons" success={rowData.firstname.charAt(0) === "J"} warning={rowData.firstname.charAt(0) === "L"}>
-                <Text>{`${rowData.firstname} ${rowData.lastname}`}</Text>
+              <List.Item onPress={action('clicked-item')} icon="icon-persons" success={item.firstname.charAt(0) === "J"} warning={item.firstname.charAt(0) === "L"}>
+                <Text>{`${item.firstname} ${item.lastname}`}</Text>
               </List.Item>
             );
           }}
@@ -384,10 +391,11 @@ storiesOf('List', module)
     <View>
       <List
         data={persons}
-        renderRow={(rowData, sectionId, rowId) => {
+        keyExtractor={(item, index) => item._id}
+        renderItem={({ item }) => {
           return (
-            <List.Item onPress={action('clicked-item')} success={rowData.firstname.charAt(0) === "J"} warning={rowData.firstname.charAt(0) === "L"}>
-              <Text>{`${rowData.firstname} ${rowData.lastname}`}</Text>
+            <List.Item key={item._id} onPress={action('clicked-item')} success={item.firstname.charAt(0) === "J"} warning={item.firstname.charAt(0) === "L"}>
+              <Text>{`${item.firstname} ${item.lastname}`}</Text>
             </List.Item>
           );
         }}
@@ -398,11 +406,12 @@ storiesOf('List', module)
     <View>
       <List
         withSections
+        keyExtractor={(item, index) => item._id}
         data={getData(persons)}
-        renderRow={(rowData, sectionId, rowId) => {
+        renderItem={({ item }) => {
           return (
-            <List.Item onPress={action('clicked-item')} icon="icon-persons" success={rowData.firstname.charAt(0) === "J"} warning={rowData.firstname.charAt(0) === "L"}>
-              <Text>{`${rowData.firstname} ${rowData.lastname}`}</Text>
+            <List.Item onPress={action('clicked-item')} icon="icon-persons" success={item.firstname.charAt(0) === "J"} warning={item.firstname.charAt(0) === "L"}>
+              <Text>{`${item.firstname} ${item.lastname}`}</Text>
             </List.Item>
           );
         }}
@@ -413,14 +422,15 @@ storiesOf('List', module)
     <View>
       <List
         withSections
+        keyExtractor={(item, index) => item._id}
         data={getData(persons)}
-        renderRow={(rowData, sectionId, rowId) => {
+        renderItem={({ item }) => {
           return (
             <List.Item
               onPress={action('clicked-item')}
-              success={rowData.firstname.charAt(0) === "J"}
-              warning={rowData.firstname.charAt(0) === "L"}
-              title={`${rowData.firstname} ${rowData.lastname}`}
+              success={item.firstname.charAt(0) === "J"}
+              warning={item.firstname.charAt(0) === "L"}
+              title={`${item.firstname} ${item.lastname}`}
               text="lorem ipsum dolores opsi quantum oretasi."
               icon="icon-badge"
               rightIcon="icon-profile"
