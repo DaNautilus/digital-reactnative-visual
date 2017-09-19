@@ -12,12 +12,14 @@ import {
 const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
 
 import Avatar from '../atoms/Avatar';
+import Textfield from '../atoms/Textfield';
+import Button from '../atoms/Button';
 const AnimatedAvatar = Animated.createAnimatedComponent(Avatar);
 
 import * as colors from '../colors';
 import * as vars from '../vars';
 
-const NAVBAR_HEIGHT = 60;
+const NAVBAR_HEIGHT = 110;
 const STATUS_BAR_HEIGHT = Platform.select({ ios: 0, android: 24 });
 
 export default class App extends Component {
@@ -155,9 +157,13 @@ export default class App extends Component {
         />
         {/* </Animated.View> */}
         <Animated.View style={[styles.navbar, { transform: [{ translateY: navbarTranslate }] }]}>
-          <Animated.Text style={[styles.title, { opacity: navbarOpacity }]}>
+          <View style={{ flex: 1, justifyContent: 'flex-start', backgroundColor: colors.backgroundGray, padding: 10, paddingTop: 0 }}>
+            <Textfield icon="icon-search" placeholder="search" noBorder />
+            <Button primary block containerStyle={{ marginTop: 10 }}>Add Person</Button>
+          </View>
+          {/* <Animated.Text style={[styles.title, { opacity: navbarOpacity }]}>
             PLACES
-          </Animated.Text>
+          </Animated.Text> */}
         </Animated.View>
       </View>
     );
@@ -173,7 +179,7 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    alignItems: 'center',
+    //alignItems: 'center',
     backgroundColor: 'white',
     borderBottomColor: '#dedede',
     borderBottomWidth: 1,
