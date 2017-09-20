@@ -9,7 +9,8 @@
     "link": "node node_modules/react-native/local-cli/cli.js link",
     "test": "jest",
     "storybook": "storybook start -p 7007 --skip-packager",
-    "prestorybook": "rnstl"
+    "prestorybook": "rnstl",
+    "install:peer": "npm i react-native-vector-icons react react-native react-native-interactable"
   },
   "dependencies": {
     "color-hash": "^1.0.3",
