@@ -13,7 +13,7 @@
     "install:peer": "npm i react-native-vector-icons react react-native react-native-interactable"
   },
   "dependencies": {
-    "color-hash": "^1.0.3",
+    "color-hash": "^1.0.3"
   },
   "devDependencies": {
     "@storybook/addon-actions": "3.2.6",
