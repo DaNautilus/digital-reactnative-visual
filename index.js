@@ -7,7 +7,9 @@ export { default as IconButton } from './js/atoms/IconButton';
 export { H1, P, Label, Text, Hint } from './js/atoms/Typography';
 export { Modal } from './js/atoms/Modal';
 export { default as Textfield } from './js/atoms/Textfield';
+export { default as Select } from './js/atoms/Select';
 export { default as List } from './js/atoms/List';
+export { default as Swipeable } from './js/atoms/Swipeable';
 export { VisualProvider, visualProvided } from './js/atoms/VisualProvider';
 export { readonly, readonlyAsProp, ReadonlyToggleButton, ReadonlyPanel, ReadonlyProvider } from './js/atoms/Readonly';
 

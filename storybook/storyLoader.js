@@ -14,6 +14,7 @@ function loadStories() {
   require('../js/atoms/List.stories.js');
   require('../js/atoms/Modal.stories.js');
   require('../js/atoms/Select.stories.js');
+  require('../js/atoms/Swipeable.stories.js');
   require('../js/atoms/Textfield.stories.js');
   require('../js/atoms/Typography.stories.js');
   require('../js/organisms/CollapsibleHeaderView.stories.js');
