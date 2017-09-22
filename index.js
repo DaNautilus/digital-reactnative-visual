@@ -10,6 +10,8 @@ export { default as Textfield } from './js/atoms/Textfield';
 export { default as Select } from './js/atoms/Select';
 export { default as List } from './js/atoms/List';
 export { default as Swipeable } from './js/atoms/Swipeable';
+export { default as ImageCropper } from './js/atoms/ImageCropper';
+export { default as QRCode } from './js/atoms/QRCode';
 export { VisualProvider, visualProvided } from './js/atoms/VisualProvider';
 export { readonly, readonlyAsProp, ReadonlyToggleButton, ReadonlyPanel, ReadonlyProvider } from './js/atoms/Readonly';
 

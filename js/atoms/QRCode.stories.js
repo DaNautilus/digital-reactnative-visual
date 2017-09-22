@@ -13,16 +13,18 @@ import Page from './Page';
 import * as colors from '../colors';
 
 storiesOf('QRCode', module)
-  .addDecorator(getStory => (
-    <Page>{getStory()}</Page>
-  ))
+  // .addDecorator(getStory => (
+  //   <Page>{getStory()}</Page>
+  // ))
   .add('overlay', () => (
-    <View style={{ marginTop: 120, flex: 1 }}>
-      <QRCodeOverlay dimensions={{ height: 300 }} />
-    </View>
+    <Page>
+      <View style={{ marginTop: 120, flex: 1 }}>
+        <QRCodeOverlay dimensions={{ height: 300 }} />
+      </View>
+    </Page>
   ))
   .add('sample', () => (
-    <View style={{ height: 400 }}>
+    <View style={{ height: 250 }}>
       <QRCode onSuccess={(code) => { action('scanned')() }} cameraSide='front' />
     </View>
   ));
