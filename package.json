@@ -1,6 +1,6 @@
 {
   "name": "@dormakaba/digital-reactnative-visual",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "start": "npm run storybook",
     "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
