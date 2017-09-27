@@ -1,0 +1,13 @@
+__tests__/
+android/
+ios/
+storybook/
+.babelrc
+.buckconfig
+.flowconfig
+.gitattributes
+.npmignore
+.watchmanconfig
+app.json
+index.android.js
+index.ios.js
