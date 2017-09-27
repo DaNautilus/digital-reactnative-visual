@@ -1,5 +1,6 @@
 {
   "name": "@dormakaba/digital-reactnative-visual",
+  "main": "index.js",
   "version": "0.0.4",
   "scripts": {
     "start": "npm run storybook",
