@@ -67,6 +67,8 @@ export default class Avatar extends React.Component {
       fontFamily: (small || xsmall) ? vars.sansserif.light : vars.sansserif.semibold
     }
 
+    const useWhiteColor = !rest.lightGray && !rest.borderGray && !rest.white;
+
     if (src && !failedLoading) {
       return (
         <View style={[styles.container, additionalContainerStyle, style]}>
@@ -85,7 +87,7 @@ export default class Avatar extends React.Component {
     if (icon) {
       return (
         <View style={[styles.container, additionalContainerStyle, style]}>
-          <Icon name={icon} white={!rest.lightGray && !rest.borderGray} />
+          <Icon name={icon} white={useWhiteColor} />
           {
             border && <View style={additionalBorderStyle} />
           }
@@ -95,7 +97,7 @@ export default class Avatar extends React.Component {
 
     return (
       <View style={[styles.container, additionalContainerStyle, style]}>
-        <Text style={additionalTextStyle} white={!rest.lightGray && !rest.borderGray}>{initials}</Text>
+        <Text style={additionalTextStyle} white={useWhiteColor}>{initials}</Text>
         {
           border && <View style={additionalBorderStyle} />
         }

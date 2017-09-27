@@ -13,3 +13,20 @@ export const textGray= darkGray;
 export const backgroundGray= lightGray;
 export const borderGray= '#b5b5b5';
 export const labelGray= '#6c6c6c';
+
+const colors = {
+  white,
+  black,
+  blue,
+  red,
+  green,
+  orange,
+  darkGray,
+  lightGray,
+  textGray,
+  backgroundGray,
+  borderGray,
+  labelGray
+};
+
+export default colors;

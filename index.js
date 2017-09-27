@@ -16,5 +16,5 @@ export { default as QRCode } from './js/atoms/QRCode';
 export { VisualProvider, visualProvided } from './js/atoms/VisualProvider';
 export { readonly, readonlyAsProp, ReadonlyToggleButton, ReadonlyPanel, ReadonlyProvider } from './js/atoms/Readonly';
 
-export * as colors from './js/colors';
-export * as vars from './js/vars';
+export { default as colors } from './js/colors';
+export { default as vars } from './js/vars';

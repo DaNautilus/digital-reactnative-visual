@@ -11,3 +11,4 @@ storybook/
 app.json
 index.android.js
 index.ios.js
+src/*.stories.js
