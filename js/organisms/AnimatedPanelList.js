@@ -121,26 +121,33 @@ export default class AnimatedPanelList extends Component {
       extrapolate: 'clamp',
     });
 
+    const listTranslate = clampedScroll.interpolate({
+      inputRange: [0, navbarHeight - STATUS_BAR_HEIGHT],
+      outputRange: [(navbarHeight - STATUS_BAR_HEIGHT), 0],
+      extrapolate: 'clamp',
+    });
+
     return (
       <View style={styles.fill}>
-        <AnimatedSectionList
-          ref="listView"
-          contentContainerStyle={[styles.contentContainer, { paddingTop: navbarHeight, }]}
-          sections={data}
-          renderItem={renderItem}
-          renderSectionHeader={withSections ? renderSectionHeader || this._renderSectionHeader : null}
-          ItemSeparatorComponent={renderSeparator || this._renderSeparator}
-          {...rest}
-          onMomentumScrollBegin={this._onMomentumScrollBegin}
-          onMomentumScrollEnd={this._onMomentumScrollEnd}
-          onScrollEndDrag={this._onScrollEndDrag}
-          scrollEventThrottle={1}
-          onScroll={Animated.event(
-            [{ nativeEvent: { contentOffset: { y: this.state.scrollAnim } } }],
-            { useNativeDriver: true },
-          )}
-        />
-        <Animated.View style={[styles.navbar, { height: navbarHeight }, { transform: [{ translateY: navbarTranslate }] }]}>
+        <Animated.View style={[{ transform: [{ translateY: listTranslate }] }]}>
+          <AnimatedSectionList
+            contentContainerStyle={[styles.contentContainer]}
+            sections={data}
+            renderItem={renderItem}
+            renderSectionHeader={withSections ? renderSectionHeader || this._renderSectionHeader : null}
+            ItemSeparatorComponent={renderSeparator || this._renderSeparator}
+            {...rest}
+            onMomentumScrollBegin={this._onMomentumScrollBegin}
+            onMomentumScrollEnd={this._onMomentumScrollEnd}
+            onScrollEndDrag={this._onScrollEndDrag}
+            scrollEventThrottle={1}
+            onScroll={Animated.event(
+              [{ nativeEvent: { contentOffset: { y: this.state.scrollAnim } } }],
+              { useNativeDriver: true },
+            )}
+          />
+        </Animated.View>
+        <Animated.View style={[styles.navbar, { height: navbarHeight }, { opacity: navbarOpacity, transform: [{ translateY: navbarTranslate }] }]}>
           {panel}
         </Animated.View>
       </View>
