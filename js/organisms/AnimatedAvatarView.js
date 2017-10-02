@@ -35,7 +35,7 @@ export default class App extends Component {
       //extrapolate: 'clamp',
     });
     const avatarOpacity = this.state.scrollY.interpolate({
-      inputRange: [0, 10, (HEADER_SCROLL_DISTANCE / 10) * 6],
+      inputRange: [0, 10, (HEADER_SCROLL_DISTANCE / 10) * 3],
       outputRange: [1, 1, 0],
       extrapolate: 'clamp',
     });
