@@ -63,7 +63,7 @@ export default class Avatar extends React.Component {
       opacity: src && !failedLoading ? 0.66 : 1
     }
     const additionalTextStyle = {
-      fontSize: (small || xsmall) ? 12 : 16,
+      fontSize: finalWidth > 96 ? finalWidth / 4 : (small || xsmall) ? 12 : 16,
       fontFamily: (small || xsmall) ? vars.sansserif.light : vars.sansserif.semibold
     }
 
