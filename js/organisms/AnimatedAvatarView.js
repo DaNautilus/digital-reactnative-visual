@@ -31,11 +31,11 @@ export default class App extends Component {
 
     const avatarScale = this.state.scrollY.interpolate({
       inputRange: [-10, 0, HEADER_SCROLL_DISTANCE / 2],
-      outputRange: [1.25, 1, 0],
+      outputRange: [0.4, 0.25, 0],
       //extrapolate: 'clamp',
     });
     const avatarOpacity = this.state.scrollY.interpolate({
-      inputRange: [0, 10, (HEADER_SCROLL_DISTANCE / 10) * 3],
+      inputRange: [0, 10, (HEADER_SCROLL_DISTANCE / 10) * 4],
       outputRange: [1, 1, 0],
       extrapolate: 'clamp',
     });
@@ -96,7 +96,7 @@ export default class App extends Component {
           />
           <AnimatedAvatar
             circle
-            xlarge
+            width={384}
             {...rest}
             style={{
               opacity: avatarOpacity,
