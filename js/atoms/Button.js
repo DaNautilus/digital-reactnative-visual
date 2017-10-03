@@ -86,7 +86,7 @@ export class PrimitiveButton extends Component {
   }
 
   _renderGroupedChildren() {
-    let { disabled, foreColor, numberOfLines, textStyle } = this.props;
+    let { disabled, foreColor, numberOfLines, textStyle, textContainerStyle } = this.props;
     let style = [
       styles.text,
       foreColor ? { color: foreColor } : null,
@@ -107,9 +107,9 @@ export class PrimitiveButton extends Component {
       case 0:
         return null;
       case 1:
-        return children[0];
+        return <View style={[styles.group, textContainerStyle]}>{children[0]}</View>;
       default:
-        return <View style={styles.group}>{children}</View>;
+        return <View style={[styles.group, textContainerStyle]}>{children}</View>;
     }
   }
 

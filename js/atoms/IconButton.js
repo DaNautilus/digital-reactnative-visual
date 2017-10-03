@@ -32,9 +32,11 @@ class IconButton extends Component {
       marginLeft={false}
       marginRight={false}
       block
+      containerStyle={{ width: 80, height: 73, justifyContent: 'flex-start' }}
       iconContainerStyle={{ backgroundColor: 'transparent', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingHorizontal: 5 }}
-      style={{ width: 80, height: 44 }}
-      textStyle={{ width: 70, fontSize: 12, marginTop: -5, lineHeight: 16 }}
+      style={{ width: 78 }}
+      textContainerStyle={{ marginTop: -5, justifyContent: 'center', height: 30 }}
+      textStyle={{ width: 70, fontSize: 12, lineHeight: 16 }}
       iconStyle={{ marginLeft: 5 }}
       iconSize={44}
       numberOfLines={2}
