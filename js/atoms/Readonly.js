@@ -95,9 +95,9 @@ ReadonlyProvider.propTypes = {
 };
 
 ReadonlyProvider.childContextTypes = {
-  readonly: React.PropTypes.bool,
-  enforceReadonly: React.PropTypes.bool,
-  toggleReadonly: React.PropTypes.func
+  readonly: PropTypes.bool,
+  enforceReadonly: PropTypes.bool,
+  toggleReadonly: PropTypes.func
 };
 
 // --------------------
@@ -115,7 +115,7 @@ ReadonlyPanel.propTypes = {
   inverse: PropTypes.bool
 };
 
-ReadonlyPanel.contextTypes = { readonly: React.PropTypes.bool };
+ReadonlyPanel.contextTypes = { readonly: PropTypes.bool };
 
 // --------------------
 // --------------------
@@ -128,7 +128,7 @@ export function ReadonlyToggleButton(props, { toggleReadonly }) {
   return <View />;
 }
 
-ReadonlyToggleButton.contextTypes = { toggleReadonly: React.PropTypes.func };
+ReadonlyToggleButton.contextTypes = { toggleReadonly: PropTypes.func };
 
 // --------------------
 // --------------------
@@ -152,9 +152,9 @@ export function readonlyAsProp(Component) {
   ReadonlyPropsHoc.displayName = `ReadonlyConnector(${getDisplayName(Component)})`;
 
   ReadonlyPropsHoc.contextTypes = {
-    readonly: React.PropTypes.bool,
-    enforceReadonly: React.PropTypes.bool,
-    toggleReadonly: React.PropTypes.func
+    readonly: PropTypes.bool,
+    enforceReadonly: PropTypes.bool,
+    toggleReadonly: PropTypes.func
   };
 
   return ReadonlyPropsHoc;
