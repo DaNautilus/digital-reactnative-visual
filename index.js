@@ -18,6 +18,7 @@ export { readonly, readonlyAsProp, ReadonlyToggleButton, ReadonlyPanel, Readonly
 
 export { default as AnimatedPanelList } from './js/organisms/AnimatedPanelList';
 export { default as AnimatedAvatarView } from './js/organisms/AnimatedAvatarView';
+export { default as AnimatedLogin } from './js/organisms/AnimatedLogin';
 
 export { default as colors } from './js/colors';
 export { default as vars } from './js/vars';
