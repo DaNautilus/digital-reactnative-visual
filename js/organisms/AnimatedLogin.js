@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { View, Image, Animated, Easing } from 'react-native';
 import Svg, { G, Polygon } from 'react-native-svg';
 
+import colors from '../colors';
+
 export default class AnimatedLogin extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +19,7 @@ export default class AnimatedLogin extends Component {
   }
 
   animate() {
-    const { onAnimationDone } = this.props;
+    const { onAnimationDone, logo, footer } = this.props;
 
     Animated.stagger(500, [
       Animated.spring(this.state.animateValue, {
