@@ -14,7 +14,7 @@ const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
 import * as colors from '../colors';
 import * as vars from '../vars';
 
-const STATUS_BAR_HEIGHT = Platform.select({ ios: 0, android: 24 });
+const STATUS_BAR_HEIGHT = Platform.select({ ios: 0, android: 0 });
 
 export default class AnimatedPanelList extends Component {
   constructor(props) {
