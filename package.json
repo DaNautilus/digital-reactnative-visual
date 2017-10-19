@@ -5,6 +5,7 @@
   "scripts": {
     "start": "npm run storybook",
     "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
+    "ios:ipad": "node node_modules/react-native/local-cli/cli.js run-ios --simulator=\"iPad Air\"",
     "ios:device": "node node_modules/react-native/local-cli/cli.js run-ios --device",
     "link": "node node_modules/react-native/local-cli/cli.js link",
     "clearCache": "watchman watch-del-all && node node_modules/react-native/local-cli/cli.js start --resetCache",
