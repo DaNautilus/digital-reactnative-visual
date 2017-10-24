@@ -110,7 +110,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   fill: {
     flex: 1,
-    backgroundColor: colors.backgroundColor,
+    backgroundColor: colors.backgroundGray,
   },
   content: {
     flex: 1,
