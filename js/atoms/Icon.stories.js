@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 import Icon from './Icon';
-import Page from './Page';
+import { Page } from './Layout';
 import Card from './Card';
 import { Label } from './Typography';
 

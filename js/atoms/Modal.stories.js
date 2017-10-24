@@ -9,7 +9,7 @@ import { Modal } from './Modal';
 import Button from './Button';
 import { Text } from './Typography';
 import Card from './Card';
-import Page from './Page';
+import { Page } from './Layout';
 import * as colors from '../colors';
 
 class Sample extends Component {

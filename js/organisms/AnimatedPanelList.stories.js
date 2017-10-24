@@ -7,7 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 
 import AnimatedPanelList from './AnimatedPanelList';
 import * as colors from '../colors';
-import Page from '../atoms/Page';
+import { Page } from '../atoms/Layout';
 import Card from '../atoms/Card';
 import List from '../atoms/List';
 import Textfield from '../atoms/Textfield';

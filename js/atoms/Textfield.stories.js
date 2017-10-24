@@ -8,7 +8,7 @@ import { linkTo } from '@storybook/addon-links';
 import Textfield from './Textfield';
 import { H1, H2, P, Label, Hint } from './Typography';
 import Card from './Card';
-import Page from './Page';
+import { Page } from './Layout';
 import * as colors from '../colors';
 
 storiesOf('Textfield', module)

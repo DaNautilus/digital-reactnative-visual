@@ -8,7 +8,7 @@ import { linkTo } from '@storybook/addon-links';
 import QRCodeOverlay from './QRCodeOverlay';
 import QRCode from './QRCode';
 import Card from './Card';
-import Page from './Page';
+import { Page } from './Layout';
 
 import * as colors from '../colors';
 

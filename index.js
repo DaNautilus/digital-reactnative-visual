@@ -1,7 +1,7 @@
 export { default as Avatar } from './js/atoms/Avatar';
 export { default as Button } from './js/atoms/Button';
 export { default as Card } from './js/atoms/Card';
-export { default as Page } from './js/atoms/Page';
+export { Page, Row, Col } from './js/atoms/Layout';
 export { default as Checkbox } from './js/atoms/Checkbox';
 export { default as Icon } from './js/atoms/Icon';
 export { default as IconButton } from './js/atoms/IconButton';

@@ -7,7 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 
 import List from './List';
 import { Text } from './Typography';
-import Page from './Page';
+import { Page } from './Layout';
 import Swipeable from './Swipeable';
 
 import * as colors from '../colors';

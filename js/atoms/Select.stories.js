@@ -7,7 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 
 import Select from './Select';
 import Card from './Card';
-import Page from './Page';
+import { Page } from './Layout';
 
 let index = 0;
 const data = [

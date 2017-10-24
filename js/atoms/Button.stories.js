@@ -7,7 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 
 import Button from './Button';
 import Card from './Card';
-import Page from './Page';
+import { Page } from './Layout';
 
 storiesOf('Button', module)
   .addDecorator(getStory =>

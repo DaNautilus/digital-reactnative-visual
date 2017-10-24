@@ -7,7 +7,7 @@ import { linkTo } from '@storybook/addon-links';
 
 import AnimatedLogin from './AnimatedLogin';
 import * as colors from '../colors';
-import Page from '../atoms/Page';
+import { Page } from '../atoms/Layout';
 import Card from '../atoms/Card';
 import List from '../atoms/List';
 import { H1, H2, P, Label, Hint, Text } from '../atoms/Typography';

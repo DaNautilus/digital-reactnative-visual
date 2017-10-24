@@ -8,7 +8,7 @@ import { linkTo } from '@storybook/addon-links';
 import Checkbox from './Checkbox';
 import * as colors from '../colors';
 import Card from './Card';
-import Page from './Page';
+import { Page } from './Layout';
 
 storiesOf('Checkbox', module)
   .addDecorator(getStory =>

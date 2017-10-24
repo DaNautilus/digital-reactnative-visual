@@ -12,6 +12,7 @@ function loadStories() {
   require('../js/atoms/Icon.stories.js');
   require('../js/atoms/IconButton.stories.js');
   require('../js/atoms/ImageCropper.stories.js');
+  require('../js/atoms/Layout.stories.js');
   require('../js/atoms/List.stories.js');
   require('../js/atoms/Modal.stories.js');
   require('../js/atoms/QRCode.stories.js');
