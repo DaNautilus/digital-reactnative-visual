@@ -15,6 +15,7 @@ function loadStories() {
   require('../js/atoms/Layout.stories.js');
   require('../js/atoms/List.stories.js');
   require('../js/atoms/Modal.stories.js');
+  require('../js/atoms/Notification.stories.js');
   require('../js/atoms/QRCode.stories.js');
   require('../js/atoms/Select.stories.js');
   require('../js/atoms/Swipeable.stories.js');
