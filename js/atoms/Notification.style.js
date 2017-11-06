@@ -6,8 +6,9 @@ export default StyleSheet.create({
   container: {
     padding: 10,
     paddingLeft: 5,
+    paddingRight: 30,
     marginBottom: 10,
-    flexDirection: 'row',
+    flexDirection: 'row'
     // borderTopWidth: 2,
     // borderColor: colors.white
   }

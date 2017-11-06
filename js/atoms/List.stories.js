@@ -431,7 +431,7 @@ storiesOf('List', module)
               success={item.firstname.charAt(0) === "J"}
               warning={item.firstname.charAt(0) === "L"}
               title={`${item.firstname} ${item.lastname}`}
-              text="lorem ipsum dolores opsi quantum oretasi."
+              text="glorem ipsum dolores opsi quantum oretasi."
               icon="icon-badge"
               rightIcon="icon-profile"
             />

@@ -21,6 +21,7 @@ function loadStories() {
   require('../js/atoms/Swipeable.stories.js');
   require('../js/atoms/Textfield.stories.js');
   require('../js/atoms/Typography.stories.js');
+  require('../js/molecules/Snack.stories.js');
   require('../js/organisms/AnimatedAvatarView.stories.js');
   require('../js/organisms/AnimatedLogin.stories.js');
   require('../js/organisms/AnimatedPanelList.stories.js');
