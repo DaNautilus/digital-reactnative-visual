@@ -16,6 +16,8 @@ export { default as QRCode } from './js/atoms/QRCode';
 export { VisualProvider, visualProvided } from './js/atoms/VisualProvider';
 export { readonly, readonlyAsProp, ReadonlyToggleButton, ReadonlyPanel, ReadonlyProvider } from './js/atoms/Readonly';
 
+export { default as Snack } from './js/molecules/Snack';
+
 export { default as AnimatedPanelList } from './js/organisms/AnimatedPanelList';
 export { default as AnimatedAvatarView } from './js/organisms/AnimatedAvatarView';
 export { default as AnimatedLogin } from './js/organisms/AnimatedLogin';
