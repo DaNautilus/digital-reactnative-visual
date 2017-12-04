@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, View, Dimensions } from 'react-native';
 import colors from '../colors';
 
-const style = {
+const styles = {
   page: {
     flex: 1,
     backgroundColor: colors.backgroundGray,
@@ -11,16 +11,16 @@ const style = {
   },
 };
 
-export function Page({ noScroll, children }) {
+export function Page({ noScroll, style, children }) {
   if (noScroll) {
     return (
-      <View style={style.page}>
+      <View style={[styles.page, style]}>
         {children}
       </View>
     )
   }
   return (
-    <ScrollView style={style.page}>
+    <ScrollView style={[styles.page, style]}>
       {children}
     </ScrollView>
   );
