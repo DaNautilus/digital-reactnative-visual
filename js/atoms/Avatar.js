@@ -87,7 +87,7 @@ export default class Avatar extends React.Component {
     if (icon) {
       return (
         <View style={[styles.container, additionalContainerStyle, style]}>
-          <Icon name={icon} white={useWhiteColor} />
+          <Icon name={icon} white={useWhiteColor} size={finalWidth > 100 ? finalWidth * 0.7 : null} />
           {
             border && <View style={additionalBorderStyle} />
           }
