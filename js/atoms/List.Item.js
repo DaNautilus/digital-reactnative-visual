@@ -41,7 +41,7 @@ export default function ListItem({ children, title, text, multiline, figure, ico
             {finalFigure}
             <View style={{ flex: 1, flexDirection: 'column' }}>
               {
-                title && <Text style={{ height: 20 }} ellipsizeMode="tail" numberOfLines={multiline ? null : 1}>{title}</Text>
+                title && <Text style={{ minHeight: 20 }} ellipsizeMode="tail" numberOfLines={multiline ? null : 1}>{title}</Text>
               }
               {
                 text && <Hint marginBottom={false} ellipsizeMode="tail" numberOfLines={multiline ? null : 1}>{text}</Hint>
