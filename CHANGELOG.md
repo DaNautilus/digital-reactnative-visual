@@ -1,3 +1,7 @@
+### 1.0.5
+
+- AnimatedLogin size for iphonex
+
 ### 1.0.4
 
 - fixes cut g in listview item

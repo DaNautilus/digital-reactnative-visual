@@ -66,8 +66,16 @@ export default class AnimatedLogin extends Component {
     const { children, logo, footer } = this.props;
     const { width, height } = Dimensions.get('window');
 
-    const scaleX = width*1.1 / 400;
-    const scaleY = height*1.1 / 1000;
+
+
+    let fWidth = 400;
+    let fHeight = 1000;
+
+    // iphonex
+    if (height > 800) fWidth = 300;
+
+    const scaleX = width*1.1 / fWidth;
+    const scaleY = height*1.1 / fHeight;
 
     let scale = scaleX > scaleY ? scaleX : scaleY;
     if (scale < 0) scale = 1;
@@ -79,8 +87,8 @@ export default class AnimatedLogin extends Component {
         <View
           style={{
             transform: [
-              { translateX: 0 /*380*/ },
-              { translateY: (scale - 1) * 200 /*380*/ },
+              { translateX: scale > 1.1 ? (fWidth - (scale * fWidth) - 25) / 2 : -12 /*380*/ },
+              { translateY: (scale - 1) * (fWidth / 2) /*380*/ },
               { scale /*2*/ }
             ]
           }}
