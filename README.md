@@ -13,8 +13,23 @@ npm run ios
 
 # run on device
 
+## ios
+
 a) set host in /storybook/storybook.js
 
 `const StorybookUI = getStorybookUI({ port: 7007, onDeviceUI: false, host: '169.254.243.196' });`
 
 b) start from xcode (being on same network as device)
+
+
+## android
+
+// check device connected
+adb devices
+
+// bridge ports
+adb reverse tcp:8081 tcp:8081
+adb reverse tcp:7007 tcp:7007
+
+// start
+npm run android

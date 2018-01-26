@@ -127,11 +127,39 @@ export default class AnimatedPanelList extends Component {
       extrapolate: 'clamp',
     });
 
+    if (Platform.OS === 'ios') {
+      return (
+        <View style={styles.fill}>
+          <Animated.View style={[{ transform: [{ translateY: listTranslate }] }]}>
+            <AnimatedSectionList
+              contentContainerStyle={[styles.contentContainer, { marginTop: Platform.select({ ios: 0, android: navbarHeight }) }]}
+              sections={data}
+              renderItem={renderItem}
+              renderSectionHeader={withSections ? renderSectionHeader || this._renderSectionHeader : null}
+              ItemSeparatorComponent={renderSeparator || this._renderSeparator}
+              {...rest}
+              onMomentumScrollBegin={this._onMomentumScrollBegin}
+              onMomentumScrollEnd={this._onMomentumScrollEnd}
+              onScrollEndDrag={this._onScrollEndDrag}
+              scrollEventThrottle={1}
+              onScroll={Animated.event(
+                [{ nativeEvent: { contentOffset: { y: this.state.scrollAnim } } }],
+                { useNativeDriver: true },
+              )}
+            />
+          </Animated.View>
+          <Animated.View style={[styles.navbar, { height: navbarHeight }, { opacity: navbarOpacity, transform: [{ translateY: navbarTranslate }] }]}>
+            {panel}
+          </Animated.View>
+        </View>
+      )
+    }
+
     return (
       <View style={styles.fill}>
-        <Animated.View style={[{ transform: [{ translateY: listTranslate }] }]}>
+        {/* <Animated.View style={[{ transform: [{ translateY: listTranslate }] }]}> */}
           <AnimatedSectionList
-            contentContainerStyle={[styles.contentContainer]}
+            contentContainerStyle={[styles.contentContainer, { marginTop: Platform.select({ ios: 0, android: navbarHeight }) }]}
             sections={data}
             renderItem={renderItem}
             renderSectionHeader={withSections ? renderSectionHeader || this._renderSectionHeader : null}
@@ -146,7 +174,7 @@ export default class AnimatedPanelList extends Component {
               { useNativeDriver: true },
             )}
           />
-        </Animated.View>
+        {/* </Animated.View> */}
         <Animated.View style={[styles.navbar, { height: navbarHeight }, { opacity: navbarOpacity, transform: [{ translateY: navbarTranslate }] }]}>
           {panel}
         </Animated.View>
