@@ -1,3 +1,7 @@
+### 1.0.8
+
+- fix for offline button
+
 ### 1.0.7
 
 - fix for scroll list

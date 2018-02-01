@@ -151,6 +151,7 @@ class Button extends Component {
       foreColor={foreColor}
       borderColor={borderColor}
       {...this.props}
+      disabled={finalDisabled}
     />
 
   }
