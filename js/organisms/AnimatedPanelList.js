@@ -132,7 +132,7 @@ export default class AnimatedPanelList extends Component {
         <View style={styles.fill}>
           <Animated.View style={[{ transform: [{ translateY: listTranslate }] }]}>
             <AnimatedSectionList
-              contentContainerStyle={[styles.contentContainer, { marginTop: Platform.select({ ios: 0, android: navbarHeight }) }]}
+              contentContainerStyle={[styles.contentContainer, { paddingTop: Platform.select({ ios: 0, android: navbarHeight }) }]}
               sections={data}
               renderItem={renderItem}
               renderSectionHeader={withSections ? renderSectionHeader || this._renderSectionHeader : null}
@@ -159,7 +159,7 @@ export default class AnimatedPanelList extends Component {
       <View style={styles.fill}>
         {/* <Animated.View style={[{ transform: [{ translateY: listTranslate }] }]}> */}
           <AnimatedSectionList
-            contentContainerStyle={[styles.contentContainer, { marginTop: Platform.select({ ios: 0, android: navbarHeight }) }]}
+            contentContainerStyle={[styles.contentContainer, { paddingTop: Platform.select({ ios: 0, android: navbarHeight }) }]}
             sections={data}
             renderItem={renderItem}
             renderSectionHeader={withSections ? renderSectionHeader || this._renderSectionHeader : null}

@@ -1,3 +1,7 @@
+### 1.0.7
+
+- fix for scroll list
+
 ### 1.0.6
 
 - fixes flickering in AnimatedPanelList for android devices
