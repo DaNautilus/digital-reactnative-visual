@@ -1,3 +1,7 @@
+### 1.0.9
+
+- optional containerStyle on animatedLogin
+
 ### 1.0.8
 
 - fix for offline button

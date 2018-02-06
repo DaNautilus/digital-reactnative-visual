@@ -63,7 +63,7 @@ export default class AnimatedLogin extends Component {
   }
 
   render() {
-    const { children, logo, footer } = this.props;
+    const { children, logo, footer, containerStyle } = this.props;
     const { width, height } = Dimensions.get('window');
 
 
@@ -81,7 +81,7 @@ export default class AnimatedLogin extends Component {
     if (scale < 0) scale = 1;
 
     return (
-      <View style={{ flex: 1, flexDirection: 'row', backgroundColor: shabbyWhite }}>
+      <View style={[{ flex: 1, flexDirection: 'row', backgroundColor: shabbyWhite }, containerStyle]}>
 
 
         <View
