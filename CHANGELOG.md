@@ -1,3 +1,7 @@
+### 1.0.10
+
+- pass props to page
+
 ### 1.0.9
 
 - optional containerStyle on animatedLogin

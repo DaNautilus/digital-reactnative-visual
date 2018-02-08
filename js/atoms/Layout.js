@@ -11,16 +11,16 @@ const styles = {
   },
 };
 
-export function Page({ noScroll, style, children }) {
+export function Page({ noScroll, style, children, ...rest }) {
   if (noScroll) {
     return (
-      <View style={[styles.page, style]}>
+      <View style={[styles.page, style]} {...rest} >
         {children}
       </View>
     )
   }
   return (
-    <ScrollView style={[styles.page, style]}>
+    <ScrollView style={[styles.page, style]} {...rest} >
       {children}
     </ScrollView>
   );
