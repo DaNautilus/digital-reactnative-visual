@@ -1,3 +1,7 @@
+### 1.0.11
+
+- pass props to animated list scroll
+
 ### 1.0.10
 
 - pass props to page

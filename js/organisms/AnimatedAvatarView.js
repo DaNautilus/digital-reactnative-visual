@@ -27,7 +27,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { children, ...rest } = this.props;
+    const { children, scrollEnabled, ...rest } = this.props;
 
     const avatarScale = this.state.scrollY.interpolate({
       inputRange: [-10, 0, HEADER_SCROLL_DISTANCE / 2],
@@ -65,6 +65,7 @@ export default class App extends Component {
             [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
             { useNativeDriver: true },
           )}
+          scrollEnabled={scrollEnabled}
         >
 
           <View style={styles.scrollViewContent}>
