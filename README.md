@@ -33,3 +33,11 @@ adb reverse tcp:7007 tcp:7007
 
 // start
 npm run android
+
+# upgrade
+
+rename project to `digital_rn_visual` and move react-native to dependencies in package.json.
+
+run `react-native-git-upgrade` in console an pray.
+
+reverse renaming and dependency move in package.json.
