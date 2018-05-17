@@ -19,29 +19,29 @@
   },
   "dependencies": {
     "color-hash": "^1.0.3",
-    "react-native-modal-selector": "0.0.19",
+    "react-native-modal-selector": "0.0.27",
     "react-native-swipeable": "^0.6.0"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "3.2.6",
-    "@storybook/addon-links": "3.2.6",
-    "@storybook/react-native": "3.2.8",
-    "babel-jest": "20.0.3",
+    "@storybook/addon-actions": "3.4.4",
+    "@storybook/addon-links": "3.4.4",
+    "@storybook/react-native": "3.4.4",
+    "babel-jest": "22.4.3",
     "babel-preset-react-native": "4.0.0",
-    "babel-preset-react-native-stage-0": "^1.0.1",
-    "jest": "20.0.4",
-    "prop-types": "15.5.10",
-    "react-dom": "16.0.0-alpha.12",
-    "react-native-storybook-loader": "1.5.1",
-    "react-test-renderer": "16.0.0-alpha.12"
+    "babel-preset-react-native-stage-0": "1.0.1",
+    "jest": "22.4.3",
+    "prop-types": "15.6.1",
+    "react-dom": "16.3.2",
+    "react-native-storybook-loader": "1.8.0",
+    "react-test-renderer": "16.3.2"
   },
   "peerDependencies": {
     "react-native": "0.55.4",
-    "react-native-vector-icons": "4.3.0",
-    "react": "16.0.0-alpha.12",
-    "react-native-camera": "^0.10.0",
-    "react-native-image-crop-picker": "^0.16.1",
-    "react-native-svg": "^6.0.0-rc1"
+    "react-native-vector-icons": "4.6.0",
+    "react": "16.3.2",
+    "react-native-camera": "1.1.2",
+    "react-native-image-crop-picker": "0.20.3",
+    "react-native-svg": "6.3.1"
   },
   "rnpm": {
     "assets": [
