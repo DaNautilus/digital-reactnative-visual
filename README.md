@@ -1,3 +1,13 @@
+# introduction
+
+This module provides basic components aligned with the dormakaba styleguide. In addition there are a few view components which includes extended animations like login, list and detail view.
+
+<div stlye="flex: 9;">
+  <img src="https://raw.githubusercontent.com/dormakaba-digital/digital-reactnative-visual/master/__doc__/img/login.png" data-canonical-src="https://raw.githubusercontent.com/dormakaba-digital/digital-reactnative-visual/master/__doc__/img/login.png" width="200" />
+
+  <img src="https://raw.githubusercontent.com/dormakaba-digital/digital-reactnative-visual/master/__doc__/img/list.png" data-canonical-src="https://raw.githubusercontent.com/dormakaba-digital/digital-reactnative-visual/master/__doc__/img/list.png" width="200" />
+</div>
+
 # start
 
 ```bash
