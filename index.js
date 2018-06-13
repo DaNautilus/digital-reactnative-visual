@@ -21,6 +21,7 @@ export { default as Snack } from './js/molecules/Snack';
 export { default as AnimatedPanelList } from './js/organisms/AnimatedPanelList';
 export { default as AnimatedAvatarView } from './js/organisms/AnimatedAvatarView';
 export { default as AnimatedLogin } from './js/organisms/AnimatedLogin';
+export { default as LoginAreaView } from './js/organisms/LoginAreaView';
 
 export { default as colors } from './js/colors';
 export { default as vars } from './js/vars';

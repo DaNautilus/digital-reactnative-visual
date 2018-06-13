@@ -1,3 +1,6 @@
+### 1.0.13
+- adds LoginAreaView
+
 ### 1.0.11
 
 - pass props to animated list scroll
