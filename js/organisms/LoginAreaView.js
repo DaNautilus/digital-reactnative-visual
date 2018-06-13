@@ -10,6 +10,7 @@ export default class LoginAreaView extends Component {
   constructor(props) {
     super(props);
 
+    const { width, height } = Dimensions.get('window');
     this.containerStyle = {
       minWidth: width > 450 ? 450 : width - 20,
       maxWidth: 450,
