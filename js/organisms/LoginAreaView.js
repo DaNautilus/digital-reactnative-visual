@@ -9,17 +9,6 @@ const shabbyWhite = '#fcfcfc';
 export default class LoginAreaView extends Component {
   constructor(props) {
     super(props);
-
-    const { width, height } = Dimensions.get('window');
-    this.containerStyle = {
-      minWidth: width > 450 ? 450 : width - 20,
-      maxWidth: 450,
-      margin: 10,
-      backgroundColor: 'rgba(254, 254, 254, 0.9)',
-      padding: 10,
-      borderWidth: 1,
-      borderColor: colors.borderGray
-    };
   }
 
   render() {
