@@ -8,6 +8,8 @@ This module provides basic components aligned with the dormakaba styleguide. In 
   <img src="https://raw.githubusercontent.com/dormakaba-digital/digital-reactnative-visual/master/__doc__/img/list.png" data-canonical-src="https://raw.githubusercontent.com/dormakaba-digital/digital-reactnative-visual/master/__doc__/img/list.png" width="200" />
 </div>
 
+Find detailed documentation here: [https://dormakaba-digital.gitbook.io/reactnative-visual/](https://dormakaba-digital.gitbook.io/reactnative-visual/)
+
 # start
 
 ```bash
