@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
+import { Animated } from 'react-native';
 
-import { StyleSheet, View, Animated, Easing } from 'react-native';
 import Notification from '../atoms/Notification';
-
 import { getColor } from '../utils/colors';
 
 export default class Snack extends Component {
@@ -11,7 +10,7 @@ export default class Snack extends Component {
 
     this.state = {
       translateValue: new Animated.Value(0),
-      height: 400
+      height: 400,
     };
 
     this.show = this.show.bind(this);
@@ -20,34 +19,23 @@ export default class Snack extends Component {
   }
 
   show() {
-    Animated.spring(this.state.translateValue, {
+    const { translateValue } = this.state;
+    Animated.spring(translateValue, {
       friction: 4,
       tension: 30,
-      toValue: 1,    // return to start
-      //useNativeDriver: true
+      toValue: 1,
+      // useNativeDriver: true
     }).start();
   }
 
   hide() {
-    Animated.spring(this.state.translateValue, {
+    const { translateValue } = this.state;
+    Animated.spring(translateValue, {
       friction: 5,
       tension: 0,
-      toValue: 0,    // return to start
-      //useNativeDriver: true
+      toValue: 0,
+      // useNativeDriver: true
     }).start();
-  }
-
-  animate() {
-    // const rev = this.animateValue.__getValue() === 1;
-    // this.animateValue.setValue(rev ? 1 : 0)
-    // Animated.timing(
-    //   this.animateValue,
-    //   {
-    //     toValue: rev ? 0 : 1,
-    //     duration: 500,
-    //     easing: Easing.linear
-    //   }
-    // ).start(() => this.animate())
   }
 
   handleOnLayout(e) {
@@ -58,11 +46,11 @@ export default class Snack extends Component {
     const { message, ...rest } = this.props;
     const { height, translateValue } = this.state;
 
-    let finalColor = getColor(this.props);
+    const finalColor = getColor(this.props);
 
     const translateY = translateValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [height * -2, 0]
+      outputRange: [height * -2, 0],
     });
     //
     // const riH = height * 0.1;
@@ -71,11 +59,16 @@ export default class Snack extends Component {
       <Animated.View
         onLayout={this.handleOnLayout}
         style={[
-          { position: 'absolute', left: 0, right: 0, top: 0, backgroundColor: finalColor, paddingTop: 15 },
           {
-            transform: [
-              { translateY }
-            ]
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            backgroundColor: finalColor,
+            paddingTop: 15,
+          },
+          {
+            transform: [{ translateY }],
           },
         ]}
       >

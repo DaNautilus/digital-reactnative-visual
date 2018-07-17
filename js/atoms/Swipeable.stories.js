@@ -3,7 +3,6 @@ import { View } from 'react-native';
 
 import { storiesOf } from '@storybook/react-native';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 
 import List from './List';
 import { Text } from './Typography';
@@ -13,32 +12,31 @@ import Swipeable from './Swipeable';
 import * as colors from '../colors';
 
 function Sep() {
-  return (
-    <View style={{ backgroundColor: colors.borderGray, height: 1}}/>
-  )
+  return <View style={{ backgroundColor: colors.borderGray, height: 1 }} />;
 }
 
 class Example1 extends React.Component {
-
   state = {
     rightActionActivated: false,
-    toggle: false
+    toggle: false,
   };
 
   render() {
-    const {leftActionActivated, toggle} = this.state;
+    const { rightActionActivated, toggle } = this.state;
 
     return (
       <Swipeable
         rightActionActivationDistance={100}
         rightContent={
-            !leftActionActivated ?
-              <Swipeable.Icon icon="icon-recyclebin" error onPress={action('clicked-button')} ></Swipeable.Icon> :
-              <Swipeable.Icon icon="icon-success" success onPress={action('clicked-button')} ></Swipeable.Icon>
-          }
-        onRightActionActivate={() => this.setState({leftActionActivated: true})}
-        onRightActionDeactivate={() => this.setState({leftActionActivated: false})}
-        onRightActionComplete={() => this.setState({toggle: !toggle})}
+          !rightActionActivated ? (
+            <Swipeable.Icon icon="icon-recyclebin" error onPress={action('clicked-button')} />
+          ) : (
+            <Swipeable.Icon icon="icon-success" success onPress={action('clicked-button')} />
+          )
+        }
+        onRightActionActivate={() => this.setState({ rightActionActivated: true })}
+        onRightActionDeactivate={() => this.setState({ rightActionActivated: false })}
+        onRightActionComplete={() => this.setState({ toggle: !toggle })}
       >
         <List.Item onPress={action('clicked-item')} icon="icon-persons">
           <Text>With Swipe action</Text>
@@ -48,27 +46,33 @@ class Example1 extends React.Component {
   }
 }
 
+// eslint-disable-next-line react/no-multi-comp
 class Example2 extends React.Component {
-
   state = {
     rightActionActivated: false,
-    toggle: false
+    toggle: false,
   };
 
   render() {
-    const {leftActionActivated, toggle} = this.state;
+    const { rightActionActivated, toggle } = this.state;
 
     return (
       <Swipeable
         rightActionActivationDistance={100}
         rightContent={
-            !leftActionActivated ?
-              <Swipeable.Text error onPress={action('clicked-button')} >Delete</Swipeable.Text> :
-              <Swipeable.Text success onPress={action('clicked-button')} >Delete on Release</Swipeable.Text>
-          }
-        onRightActionActivate={() => this.setState({leftActionActivated: true})}
-        onRightActionDeactivate={() => this.setState({leftActionActivated: false})}
-        onRightActionComplete={() => this.setState({toggle: !toggle})}
+          !rightActionActivated ? (
+            <Swipeable.Text error onPress={action('clicked-button')}>
+              Delete
+            </Swipeable.Text>
+          ) : (
+            <Swipeable.Text success onPress={action('clicked-button')}>
+              Delete on Release
+            </Swipeable.Text>
+          )
+        }
+        onRightActionActivate={() => this.setState({ rightActionActivated: true })}
+        onRightActionDeactivate={() => this.setState({ rightActionActivated: false })}
+        onRightActionComplete={() => this.setState({ toggle: !toggle })}
       >
         <List.Item onPress={action('clicked-item')} icon="icon-persons">
           <Text>With Swipe action</Text>
@@ -79,24 +83,20 @@ class Example2 extends React.Component {
 }
 
 storiesOf('Swipeable', module)
-  .addDecorator(getStory =>
-    <Page>
-      {getStory()}
-    </Page>
-  )
+  .addDecorator(getStory => <Page>{getStory()}</Page>)
   .add('samples', () => (
     <View style={{ marginTop: 10 }}>
       <Swipeable
         rightButtons={[
-          <Swipeable.Icon icon="icon-recyclebin" error onPress={action('clicked-button')} ></Swipeable.Icon>
+          <Swipeable.Icon icon="icon-recyclebin" error onPress={action('clicked-button')} />,
         ]}
         leftButtons={[
-          <Swipeable.Icon left icon="icon-admin" info onPress={action('clicked-button')} ></Swipeable.Icon>,
-          <Swipeable.Icon left icon="icon-success" success onPress={action('clicked-button')} ></Swipeable.Icon>
+          <Swipeable.Icon left icon="icon-admin" info onPress={action('clicked-button')} />,
+          <Swipeable.Icon left icon="icon-success" success onPress={action('clicked-button')} />,
         ]}
         // rightActionActivationDistance={140}
         // onRightActionRelease={() => { action('release-right-item')() }}
-        >
+      >
         <List.Item onPress={action('clicked-item')} icon="icon-persons">
           <Text>With Buttons</Text>
         </List.Item>
@@ -108,15 +108,21 @@ storiesOf('Swipeable', module)
         leftButtonWidth={100}
         rightButtonWidth={100}
         rightButtons={[
-          <Swipeable.Text error onPress={action('clicked-button')} >Delete</Swipeable.Text>
+          <Swipeable.Text error onPress={action('clicked-button')}>
+            Delete
+          </Swipeable.Text>,
         ]}
         leftButtons={[
-          <Swipeable.Text left info onPress={action('clicked-button')} >Permanently closed</Swipeable.Text>,
-          <Swipeable.Text left success onPress={action('clicked-button')} >Remote Open</Swipeable.Text>
+          <Swipeable.Text left info onPress={action('clicked-button')}>
+            Permanently closed
+          </Swipeable.Text>,
+          <Swipeable.Text left success onPress={action('clicked-button')}>
+            Remote Open
+          </Swipeable.Text>,
         ]}
         // rightActionActivationDistance={140}
         // onRightActionRelease={() => { action('release-right-item')() }}
-        >
+      >
         <List.Item onPress={action('clicked-item')} icon="icon-persons">
           <Text>With Buttons</Text>
         </List.Item>

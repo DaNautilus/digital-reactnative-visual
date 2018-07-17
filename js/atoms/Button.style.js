@@ -8,36 +8,12 @@ export default StyleSheet.create({
     flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   containerMinWidth: {
     minWidth: 160,
     maxWidth: 160,
   },
-  // withoutShadow: {
-  //   flex: 0,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   paddingHorizontal : 10,
-  //   height: 44,
-  // },
-  // withShadow: {
-  //   flex: 0,
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   paddingHorizontal : 10,
-  //   height: 44,
-  //   shadowColor: colors.black,
-  //   shadowOpacity: 0.26,
-  //   shadowRadius: 1,
-  //   shadowOffset: {
-  //     height: 1,
-  //     width: 0
-  //   }
-  // },
-  // shadowIconButton: {
-  //   paddingHorizontal: 0
-  // },
   text: {
     fontFamily: vars.sansserif.light,
     color: colors.textGray,
@@ -45,7 +21,7 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   textIconButton: {
-    fontSize: 10
+    fontSize: 10,
   },
   group: {
     flexDirection: 'row',

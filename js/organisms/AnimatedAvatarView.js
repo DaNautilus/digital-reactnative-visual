@@ -1,17 +1,10 @@
 import React, { Component } from 'react';
-import {
-  Animated,
-  Platform,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Animated, StyleSheet, View } from 'react-native';
 
 import Avatar from '../atoms/Avatar';
-const AnimatedAvatar = Animated.createAnimatedComponent(Avatar);
-
 import * as colors from '../colors';
+
+const AnimatedAvatar = Animated.createAnimatedComponent(Avatar);
 
 const HEADER_MAX_HEIGHT = 104;
 const HEADER_MIN_HEIGHT = 0;
@@ -28,32 +21,33 @@ export default class App extends Component {
 
   render() {
     const { children, scrollEnabled, ...rest } = this.props;
+    const { scrollY } = this.state;
 
-    const avatarScale = this.state.scrollY.interpolate({
+    const avatarScale = scrollY.interpolate({
       inputRange: [-10, 0, HEADER_SCROLL_DISTANCE / 2],
       outputRange: [0.4, 0.25, 0],
-      //extrapolate: 'clamp',
+      // extrapolate: 'clamp',
     });
-    const avatarOpacity = this.state.scrollY.interpolate({
+    const avatarOpacity = scrollY.interpolate({
       inputRange: [0, 10, (HEADER_SCROLL_DISTANCE / 10) * 4],
       outputRange: [1, 1, 0],
       extrapolate: 'clamp',
     });
-    const avatarTranslate = this.state.scrollY.interpolate({
+    const avatarTranslate = scrollY.interpolate({
       inputRange: [-10, 0, 1, HEADER_SCROLL_DISTANCE / 4, HEADER_SCROLL_DISTANCE],
       outputRange: [5, 0, 0, -30, -54],
-      //extrapolate: 'clamp',
+      // extrapolate: 'clamp',
     });
 
-    const bgTranslate = this.state.scrollY.interpolate({
+    const bgTranslate = scrollY.interpolate({
       inputRange: [0, 49, HEADER_SCROLL_DISTANCE],
       outputRange: [0, 0, -54],
       extrapolate: 'clamp',
     });
-    const bgScale = this.state.scrollY.interpolate({
+    const bgScale = scrollY.interpolate({
       inputRange: [-10, 0, HEADER_SCROLL_DISTANCE],
       outputRange: [1.2, 1, 1],
-      //extrapolate: 'clamp',
+      // extrapolate: 'clamp',
     });
 
     return (
@@ -61,32 +55,20 @@ export default class App extends Component {
         <Animated.ScrollView
           style={styles.fill}
           scrollEventThrottle={1}
-          onScroll={Animated.event(
-            [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
-            { useNativeDriver: true },
-          )}
+          onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollY } } }], {
+            useNativeDriver: true,
+          })}
           scrollEnabled={scrollEnabled}
         >
-
-          <View style={styles.scrollViewContent}>
-            {children}
-          </View>
-
+          <View style={styles.scrollViewContent}>{children}</View>
         </Animated.ScrollView>
 
-        <View
-          style={[
-            styles.bar
-          ]}
-        >
+        <View style={[styles.bar]}>
           <Animated.View
             style={[
               styles.bluebar,
               {
-                transform: [
-                  { translateY: bgTranslate },
-                  { scale: bgScale }
-                ],
+                transform: [{ translateY: bgTranslate }, { scale: bgScale }],
               },
             ]}
           />
@@ -96,10 +78,7 @@ export default class App extends Component {
             {...rest}
             style={{
               opacity: avatarOpacity,
-              transform: [
-                { translateY: avatarTranslate },
-                { scale: avatarScale }
-              ],
+              transform: [{ translateY: avatarTranslate }, { scale: avatarScale }],
             }}
           />
         </View>
@@ -162,7 +141,7 @@ const styles = StyleSheet.create({
   },
   scrollViewContent: {
     marginTop: HEADER_MAX_HEIGHT,
-    paddingTop: 10
+    paddingTop: 10,
   },
   row: {
     height: 40,

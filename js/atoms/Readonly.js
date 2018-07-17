@@ -1,9 +1,9 @@
 /* eslint-disable no-shadow */
 import React from 'react';
 import PropTypes from 'prop-types';
+import { View } from 'react-native';
 import getDisplayName from '../utils/getDisplayName';
 
-import { View } from 'react-native';
 import Button from './Button';
 
 const bool = x => typeof x === 'boolean';
@@ -34,7 +34,7 @@ export class ReadonlyProvider extends React.Component {
 
   componentWillReceiveProps(newProps) {
     this.setState(oldState => ({
-      readonly: this.readonlyValue(newProps, oldState)
+      readonly: this.readonlyValue(newProps, oldState),
     }));
   }
 
@@ -54,30 +54,36 @@ export class ReadonlyProvider extends React.Component {
   }
 
   controlled() {
-    const controlled = bool(this.props.readonly);
-    const uncontrolled = bool(this.props.defaultReadonly) || this.props.onChange;
+    const { readonly, defaultReadonly, onChange } = this.props;
+    const controlled = bool(readonly);
+    const uncontrolled = bool(defaultReadonly) || onChange;
 
     if (controlled && uncontrolled) {
       // eslint-disable-next-line no-console
-      console.error('ReadonlyProvided should either be passed a "readonly" prop or a "defaultReadonly" and optional "onChange" prop, not both.');
+      console.error(
+        'ReadonlyProvided should either be passed a "readonly" prop or a "defaultReadonly" and optional "onChange" prop, not both.'
+      );
     }
 
     return controlled;
   }
 
   toggleReadonly(newReadonly) {
+    const { enforceReadonly, onChange } = this.props;
+    const { readonly } = this.state;
+
     if (this.controlled()) {
       return;
     }
 
-    if (this.props.enforceReadonly) return;
+    if (enforceReadonly) return;
 
     this.setState(oldState => ({
-      readonly: bool(newReadonly) ? newReadonly : !oldState.readonly
+      readonly: bool(newReadonly) ? newReadonly : !oldState.readonly,
     }));
 
-    if (this.props.onChange) {
-      this.props.onChange(readonly);
+    if (onChange) {
+      onChange(bool(newReadonly) ? newReadonly : !readonly);
     }
   }
 
@@ -88,16 +94,10 @@ export class ReadonlyProvider extends React.Component {
   }
 }
 
-ReadonlyProvider.propTypes = {
-  children: PropTypes.node,
-  readonly: PropTypes.bool,
-  defaultReadonly: PropTypes.bool
-};
-
 ReadonlyProvider.childContextTypes = {
   readonly: PropTypes.bool,
   enforceReadonly: PropTypes.bool,
-  toggleReadonly: PropTypes.func
+  toggleReadonly: PropTypes.func,
 };
 
 // --------------------
@@ -109,11 +109,6 @@ export function ReadonlyPanel({ inverse, children, style }, { readonly }) {
 
   return <View style={style}>{children}</View>;
 }
-
-ReadonlyPanel.propTypes = {
-  children: PropTypes.node,
-  inverse: PropTypes.bool
-};
 
 ReadonlyPanel.contextTypes = { readonly: PropTypes.bool };
 
@@ -138,12 +133,13 @@ export function readonlyAsProp(Component) {
   // eslint-disable-next-line react/no-multi-comp, react/prefer-stateless-function
   class ReadonlyPropsHoc extends React.Component {
     render() {
+      const { readonly, enforceReadonly, toggleReadonly } = this.context;
       return (
         <Component
           {...this.props}
-          readonly={this.context.readonly}
-          enforceReadonly={this.context.enforceReadonly}
-          toggleReadonly={this.context.toggleReadonly}
+          readonly={readonly}
+          enforceReadonly={enforceReadonly}
+          toggleReadonly={toggleReadonly}
         />
       );
     }
@@ -154,7 +150,7 @@ export function readonlyAsProp(Component) {
   ReadonlyPropsHoc.contextTypes = {
     readonly: PropTypes.bool,
     enforceReadonly: PropTypes.bool,
-    toggleReadonly: PropTypes.func
+    toggleReadonly: PropTypes.func,
   };
 
   return ReadonlyPropsHoc;
@@ -164,13 +160,12 @@ export function readonlyAsProp(Component) {
 // readonly props can be passed as hoc options or directly as props to the wrapped component.
 export function readonly(hocOptions = {}) {
   return function Wrapper(WrappedComponent) {
-
     const ToProps = readonlyAsProp(WrappedComponent);
 
     function ReadonlyHoc(props) {
       const {
         readonly = hocOptions.readonly,
-        enforceReadonly = hocOptions.enforceReadonly || props.enforceReadonly,
+        enforceReadonly = hocOptions.enforceReadonly || props.enforceReadonly, // eslint-disable-line react/destructuring-assignment
         defaultReadonly = hocOptions.defaultReadonly,
         onChange = hocOptions.onChange,
         ...rest

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import { View, Vibration } from 'react-native';
 import Camera from 'react-native-camera';
-import Icon from './Icon';
 import QRCodeOverlay from './QRCodeOverlay';
 
 import styles from './QRCode.style.js';
@@ -11,7 +10,7 @@ export default class QRCodeScanner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dimensions: { width: 0, height: 0}
+      dimensions: { width: 0, height: 0 },
     };
 
     this.onBarCodeRead = this.onBarCodeRead.bind(this);
@@ -27,6 +26,28 @@ export default class QRCodeScanner extends Component {
   //   }, 10000);
   // }
 
+  onBarCodeRead(result) {
+    const { onSuccess } = this.props;
+    const { found, code, foundAt } = this;
+
+    if (
+      found ||
+      (code === result.data && foundAt && new Date().getTime() - foundAt.getTime() < 5000)
+    )
+      return;
+
+    this.handleFound(result.data);
+    Vibration.vibrate();
+    onSuccess(result.data);
+  }
+
+  onLayout = event => {
+    const { width, height } = event.nativeEvent.layout;
+    const { dimensions } = this.state;
+    if (height === dimensions.height) return;
+    this.setState({ dimensions: { width, height } });
+  };
+
   handleFound(code) {
     if (this.found) return;
 
@@ -41,31 +62,17 @@ export default class QRCodeScanner extends Component {
     }, 500);
   }
 
-  onBarCodeRead(result) {
-    const { onSuccess } = this.props;
-    const { found, code, foundAt } = this;
-
-    if (found || (code === result.data && foundAt && new Date().getTime() - foundAt.getTime() < 5000)) return;
-
-    this.handleFound(result.data);
-    Vibration.vibrate();
-    onSuccess(result.data);
-  }
-
-  onLayout = event => {
-    const { width, height } = event.nativeEvent.layout;
-    if (height === this.state.dimensions.height) return;
-    this.setState({ dimensions: { width, height } });
-  }
-
   render() {
     const { cameraSide } = this.props;
     const { dimensions, found } = this.state;
 
     return (
       <View onLayout={this.onLayout} style={styles.camera}>
-        <Camera type={cameraSide || 'front'} onBarCodeRead={this.onBarCodeRead} style={styles.camera}>
-        </Camera>
+        <Camera
+          type={cameraSide || 'front'}
+          onBarCodeRead={this.onBarCodeRead}
+          style={styles.camera}
+        />
         <QRCodeOverlay dimensions={dimensions} found={found} />
       </View>
     );

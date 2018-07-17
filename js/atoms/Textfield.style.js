@@ -8,11 +8,11 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.borderGray,
     paddingHorizontal: 5,
-    paddingTop: 5
+    paddingTop: 5,
   },
   textfield: {
-    height: (Platform.OS === 'ios') ? 30 : 40,
+    height: Platform.OS === 'ios' ? 30 : 40,
     fontSize: 16,
-    fontFamily: vars.sansserif.light
-  }
+    fontFamily: vars.sansserif.light,
+  },
 });

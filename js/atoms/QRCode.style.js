@@ -1,10 +1,9 @@
 import { StyleSheet } from 'react-native';
 import * as colors from '../colors';
-import * as vars from '../vars';
 
 export default StyleSheet.create({
   camera: {
-    flex: 1
+    flex: 1,
   },
 
   rectangleContainer: {
@@ -15,7 +14,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'transparent'
+    backgroundColor: 'transparent',
   },
 
   rectangleContainerFound: {
@@ -25,22 +24,21 @@ export default StyleSheet.create({
   rectangle: {
     backgroundColor: 'transparent',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 
   rectangleFound: {
     borderWidth: 2,
-    borderColor: colors.green
+    borderColor: colors.green,
   },
 
   rectangleInner: {
     borderColor: colors.darkGray,
     backgroundColor: 'transparent',
-    position: 'absolute'
+    position: 'absolute',
   },
 
   rectangleInnerFound: {
-    borderColor: 'transparent'
-  }
-
+    borderColor: 'transparent',
+  },
 });

@@ -1,20 +1,17 @@
 import React, { Children } from 'react';
 
-
 export function coalesceNonElementChildren(children, coalesceNodes) {
   const coalescedChildren = [];
   let contiguousNonElements = [];
 
-  Children.forEach(children, (child) => {
+  Children.forEach(children, child => {
     if (!React.isValidElement(child)) {
       contiguousNonElements.push(child);
       return;
     }
 
     if (contiguousNonElements.length) {
-      coalescedChildren.push(
-        coalesceNodes(contiguousNonElements, coalescedChildren.length)
-      );
+      coalescedChildren.push(coalesceNodes(contiguousNonElements, coalescedChildren.length));
       contiguousNonElements = [];
     }
 
@@ -22,9 +19,7 @@ export function coalesceNonElementChildren(children, coalesceNodes) {
   });
 
   if (contiguousNonElements.length) {
-    coalescedChildren.push(
-      coalesceNodes(contiguousNonElements, coalescedChildren.length)
-    );
+    coalescedChildren.push(coalesceNodes(contiguousNonElements, coalescedChildren.length));
   }
 
   return coalescedChildren;

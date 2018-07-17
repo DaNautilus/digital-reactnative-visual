@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import * as colors from '../colors';
-import * as vars from '../vars';
 
 export default StyleSheet.create({
   container: {
@@ -10,24 +9,18 @@ export default StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.borderGray,
     padding: 10,
-    marginBottom: 10
-    // borderTopWidth: 2,
-    // borderColor: colors.white
+    marginBottom: 10,
   },
   transparent: {
-    backgroundColor: 'rgba(254, 254, 254, 0.9)'
-    // borderTopWidth: 2,
-    // borderColor: colors.white
+    backgroundColor: 'rgba(254, 254, 254, 0.9)',
   },
   group: {
-    marginBottom: 1
-    // borderTopWidth: 2,
-    // borderColor: colors.white
+    marginBottom: 1,
   },
   actions: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
     alignItems: 'center',
-    marginTop: 10
-  }
+    marginTop: 10,
+  },
 });

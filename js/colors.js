@@ -9,10 +9,10 @@ export const orange = '#ffb726';
 export const darkGray = '#484848';
 export const lightGray = '#ededeb';
 
-export const textGray= darkGray;
-export const backgroundGray= lightGray;
-export const borderGray= '#b5b5b5';
-export const labelGray= '#6c6c6c';
+export const textGray = darkGray;
+export const backgroundGray = lightGray;
+export const borderGray = '#b5b5b5';
+export const labelGray = '#6c6c6c';
 
 const colors = {
   white,
@@ -26,7 +26,7 @@ const colors = {
   textGray,
   backgroundGray,
   borderGray,
-  labelGray
+  labelGray,
 };
 
 export default colors;

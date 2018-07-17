@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import {
-  Animated,
-  SectionList,
-  Platform,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-
-const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
+import { Animated, SectionList, Platform, StyleSheet, Text, View } from 'react-native';
 
 import * as colors from '../colors';
 import * as vars from '../vars';
 
+const AnimatedSectionList = Animated.createAnimatedComponent(SectionList);
+
 const STATUS_BAR_HEIGHT = Platform.select({ ios: 0, android: 0 });
 
 export default class AnimatedPanelList extends Component {
+  _clampedScrollValue = 0;
+
+  _offsetValue = 0;
+
+  _scrollValue = 0;
+
   constructor(props) {
     super(props);
 
@@ -35,37 +33,36 @@ export default class AnimatedPanelList extends Component {
             outputRange: [0, 1],
             extrapolateLeft: 'clamp',
           }),
-          offsetAnim,
+          offsetAnim
         ),
         0,
-        navbarHeight - STATUS_BAR_HEIGHT,
+        navbarHeight - STATUS_BAR_HEIGHT
       ),
     };
   }
 
-  _clampedScrollValue = 0;
-  _offsetValue = 0;
-  _scrollValue = 0;
-
   componentDidMount() {
     const { navbarHeight } = this.props;
+    const { scrollAnim, offsetAnim } = this.state;
 
-    this.state.scrollAnim.addListener(({ value }) => {
+    scrollAnim.addListener(({ value }) => {
       const diff = value - this._scrollValue;
       this._scrollValue = value;
       this._clampedScrollValue = Math.min(
         Math.max(this._clampedScrollValue + diff, 0),
-        navbarHeight - STATUS_BAR_HEIGHT,
+        navbarHeight - STATUS_BAR_HEIGHT
       );
     });
-    this.state.offsetAnim.addListener(({ value }) => {
+    offsetAnim.addListener(({ value }) => {
       this._offsetValue = value;
     });
   }
 
   componentWillUnmount() {
-    this.state.scrollAnim.removeAllListeners();
-    this.state.offsetAnim.removeAllListeners();
+    const { scrollAnim, offsetAnim } = this.state;
+
+    scrollAnim.removeAllListeners();
+    offsetAnim.removeAllListeners();
   }
 
   _onScrollEndDrag = () => {
@@ -78,19 +75,22 @@ export default class AnimatedPanelList extends Component {
 
   _onMomentumScrollEnd = () => {
     const { navbarHeight } = this.props;
+    const { offsetAnim } = this.state;
 
-    const toValue = this._scrollValue > navbarHeight &&
+    const toValue =
+      this._scrollValue > navbarHeight &&
       this._clampedScrollValue > (navbarHeight - STATUS_BAR_HEIGHT) / 2
-      ? this._offsetValue + navbarHeight
-      : this._offsetValue - navbarHeight;
+        ? this._offsetValue + navbarHeight
+        : this._offsetValue - navbarHeight;
 
-    Animated.timing(this.state.offsetAnim, {
+    Animated.timing(offsetAnim, {
       toValue,
       duration: 350,
       useNativeDriver: true,
     }).start();
   };
 
+  // eslint-disable-next-line class-methods-use-this
   _renderSectionHeader({ section }) {
     return (
       <View style={styles.sectionHeader}>
@@ -99,16 +99,24 @@ export default class AnimatedPanelList extends Component {
     );
   }
 
+  // eslint-disable-next-line class-methods-use-this
   _renderSeparator() {
-    var style = styles.rowSeparator;
-    return (
-      <View style={style}/>
-    );
+    const style = styles.rowSeparator;
+    return <View style={style} />;
   }
 
   render() {
-    const { data, withSections, renderSeparator, renderSectionHeader, renderItem, panel, navbarHeight, ...rest } = this.props;
-    const { clampedScroll } = this.state;
+    const {
+      data,
+      withSections,
+      renderSeparator,
+      renderSectionHeader,
+      renderItem,
+      panel,
+      navbarHeight,
+      ...rest
+    } = this.props;
+    const { clampedScroll, scrollAnim } = this.state;
 
     const navbarTranslate = clampedScroll.interpolate({
       inputRange: [0, navbarHeight - STATUS_BAR_HEIGHT],
@@ -123,7 +131,7 @@ export default class AnimatedPanelList extends Component {
 
     const listTranslate = clampedScroll.interpolate({
       inputRange: [0, navbarHeight - STATUS_BAR_HEIGHT],
-      outputRange: [(navbarHeight - STATUS_BAR_HEIGHT), 0],
+      outputRange: [navbarHeight - STATUS_BAR_HEIGHT, 0],
       extrapolate: 'clamp',
     });
 
@@ -132,50 +140,70 @@ export default class AnimatedPanelList extends Component {
         <View style={styles.fill}>
           <Animated.View style={[{ transform: [{ translateY: listTranslate }] }]}>
             <AnimatedSectionList
-              contentContainerStyle={[styles.contentContainer, { paddingTop: Platform.select({ ios: 0, android: navbarHeight }) }]}
+              contentContainerStyle={[
+                styles.contentContainer,
+                { paddingTop: Platform.select({ ios: 0, android: navbarHeight }) },
+              ]}
               sections={data}
               renderItem={renderItem}
-              renderSectionHeader={withSections ? renderSectionHeader || this._renderSectionHeader : null}
+              renderSectionHeader={
+                withSections ? renderSectionHeader || this._renderSectionHeader : null
+              }
               ItemSeparatorComponent={renderSeparator || this._renderSeparator}
               {...rest}
               onMomentumScrollBegin={this._onMomentumScrollBegin}
               onMomentumScrollEnd={this._onMomentumScrollEnd}
               onScrollEndDrag={this._onScrollEndDrag}
               scrollEventThrottle={1}
-              onScroll={Animated.event(
-                [{ nativeEvent: { contentOffset: { y: this.state.scrollAnim } } }],
-                { useNativeDriver: true },
-              )}
+              onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollAnim } } }], {
+                useNativeDriver: true,
+              })}
             />
           </Animated.View>
-          <Animated.View style={[styles.navbar, { height: navbarHeight }, { opacity: navbarOpacity, transform: [{ translateY: navbarTranslate }] }]}>
+          <Animated.View
+            style={[
+              styles.navbar,
+              { height: navbarHeight },
+              { opacity: navbarOpacity, transform: [{ translateY: navbarTranslate }] },
+            ]}
+          >
             {panel}
           </Animated.View>
         </View>
-      )
+      );
     }
 
     return (
       <View style={styles.fill}>
         {/* <Animated.View style={[{ transform: [{ translateY: listTranslate }] }]}> */}
-          <AnimatedSectionList
-            contentContainerStyle={[styles.contentContainer, { paddingTop: Platform.select({ ios: 0, android: navbarHeight }) }]}
-            sections={data}
-            renderItem={renderItem}
-            renderSectionHeader={withSections ? renderSectionHeader || this._renderSectionHeader : null}
-            ItemSeparatorComponent={renderSeparator || this._renderSeparator}
-            {...rest}
-            onMomentumScrollBegin={this._onMomentumScrollBegin}
-            onMomentumScrollEnd={this._onMomentumScrollEnd}
-            onScrollEndDrag={this._onScrollEndDrag}
-            scrollEventThrottle={1}
-            onScroll={Animated.event(
-              [{ nativeEvent: { contentOffset: { y: this.state.scrollAnim } } }],
-              { useNativeDriver: true },
-            )}
-          />
+        <AnimatedSectionList
+          contentContainerStyle={[
+            styles.contentContainer,
+            { paddingTop: Platform.select({ ios: 0, android: navbarHeight }) },
+          ]}
+          sections={data}
+          renderItem={renderItem}
+          renderSectionHeader={
+            withSections ? renderSectionHeader || this._renderSectionHeader : null
+          }
+          ItemSeparatorComponent={renderSeparator || this._renderSeparator}
+          {...rest}
+          onMomentumScrollBegin={this._onMomentumScrollBegin}
+          onMomentumScrollEnd={this._onMomentumScrollEnd}
+          onScrollEndDrag={this._onScrollEndDrag}
+          scrollEventThrottle={1}
+          onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: scrollAnim } } }], {
+            useNativeDriver: true,
+          })}
+        />
         {/* </Animated.View> */}
-        <Animated.View style={[styles.navbar, { height: navbarHeight }, { opacity: navbarOpacity, transform: [{ translateY: navbarTranslate }] }]}>
+        <Animated.View
+          style={[
+            styles.navbar,
+            { height: navbarHeight },
+            { opacity: navbarOpacity, transform: [{ translateY: navbarTranslate }] },
+          ]}
+        >
           {panel}
         </Animated.View>
       </View>
@@ -192,34 +220,33 @@ const styles = StyleSheet.create({
     top: 0,
     left: 0,
     right: 0,
-    //alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: 'white',
     borderBottomColor: '#dedede',
     borderBottomWidth: 1,
     justifyContent: 'center',
     paddingTop: STATUS_BAR_HEIGHT,
   },
-  contentContainer: {
-  },
+  contentContainer: {},
   title: {
     color: '#333333',
   },
   rowSeparator: {
     backgroundColor: colors.borderGray,
-    height: 1
+    height: 1,
   },
   rowSeparatorHide: {
     opacity: 0.0,
   },
   sectionHeader: {
     backgroundColor: colors.labelGray,
-    height: 40
+    height: 40,
   },
   sectionHeaderText: {
     fontFamily: vars.sansserif.light,
     fontSize: 16,
     color: colors.white,
     paddingLeft: 10,
-    paddingVertical: 7
-  }
+    paddingVertical: 7,
+  },
 });

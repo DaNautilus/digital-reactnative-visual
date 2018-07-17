@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
 
 import { storiesOf } from '@storybook/react-native';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 
 import Select from './Select';
 import Card from './Card';
 import { Page } from './Layout';
 
 let index = 0;
+/* eslint-disable no-plusplus */
 const data = [
   { key: index++, section: true, label: 'Fruits' },
   { key: index++, label: 'Red Apples' },
@@ -27,16 +25,17 @@ const data = [
   { key: index++, label: 'Rhubarb' },
   { key: index++, label: 'Tomatoes' },
   { key: index++, label: 'Tomabako' },
-  { key: index++, label: 'Ginger' }
+  { key: index++, label: 'Ginger' },
 ];
+/* eslint-enable no-plusplus */
 
 class Sample extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      value: ''
-    }
+      value: '',
+    };
 
     this.onChange = this.onChange.bind(this);
   }
@@ -46,22 +45,23 @@ class Sample extends Component {
   }
 
   render() {
-    const { reloading } = this.state;
-
+    const { value } = this.state;
     return (
-      <Select data={data} label="fruit" placeholder="select some food" value={this.state.value} onChange={this.onChange} />
+      <Select
+        data={data}
+        label="fruit"
+        placeholder="select some food"
+        value={value}
+        onChange={this.onChange}
+      />
     );
   }
 }
 
 storiesOf('Select', module)
-  .addDecorator(getStory =>
+  .addDecorator(getStory => (
     <Page>
-      <Card>
-        {getStory()}
-      </Card>
+      <Card>{getStory()}</Card>
     </Page>
-  )
-  .add('sample', () => (
-    <Sample />
-  ));
+  ))
+  .add('sample', () => <Sample />);

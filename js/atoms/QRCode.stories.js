@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 
 import { storiesOf } from '@storybook/react-native';
 import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 
 import QRCodeOverlay from './QRCodeOverlay';
 import QRCode from './QRCode';
-import Card from './Card';
 import { Page } from './Layout';
-
-import * as colors from '../colors';
 
 storiesOf('QRCode', module)
   // .addDecorator(getStory => (
@@ -25,6 +21,11 @@ storiesOf('QRCode', module)
   ))
   .add('sample', () => (
     <View style={{ height: 250 }}>
-      <QRCode onSuccess={(code) => { action('scanned')() }} cameraSide='front' />
+      <QRCode
+        onSuccess={() => {
+          action('scanned')();
+        }}
+        cameraSide="front"
+      />
     </View>
   ));

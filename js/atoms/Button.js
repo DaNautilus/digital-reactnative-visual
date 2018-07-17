@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Text as RText, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { Text } from './Typography';
 import Icon from './Icon';
 import { coalesceNonElementChildren } from '../utils';
@@ -8,100 +7,76 @@ import styles from './Button.style.js';
 import { visualProvided } from './VisualProvider';
 
 import { getColor } from '../utils/colors';
-import * as colors from '../colors'
+import * as colors from '../colors';
 
 const systemButtonOpacity = 0.6;
 
 export class PrimitiveButton extends Component {
-  render() {
-    const { block, icon, foreColor, backgroundColor, borderColor, marginRight, marginLeft } = this.props;
-
-    const touchableProps = {
-      activeOpacity: this._computeActiveOpacity(),
-    };
-
-    const style = [
-      styles.container,
-      backgroundColor ? { backgroundColor } : null,
-      borderColor ? { borderColor, borderWidth: 1 } : null,
-      !block ? styles.containerMinWidth : null,
-      marginLeft ? { marginLeft: 10 } : 0,
-      marginRight ? { marginRight: 10 } : 0,
-      this.props.containerStyle
-    ];
-
-    // const shadowStyle = [
-    //   primary && !disabled ? styles.withoutShadow : null,
-    //   (primary || secondary || tertiary) ? styles.withoutShadow : null,
-    //   asIconButton ? styles.shadowIconButton : null
-    // ];
-
-    if (!this.props.disabled) {
-      touchableProps.onPress = this.props.onPress;
-      touchableProps.onPressIn = this.props.onPressIn;
-      touchableProps.onPressOut = this.props.onPressOut;
-      touchableProps.onLongPress = this.props.onLongPress;
+  _computeActiveOpacity() {
+    const { disabled, activeOpacity } = this.props;
+    if (disabled) {
+      return 1;
     }
-
-    return (
-      <TouchableOpacity
-        {...touchableProps}
-        testID={this.props.testID}
-        style={style}
-        accessibilityTraits="button"
-        accessibilityComponentType="button"
-      >
-        <View style={[/*shadowStyle,*/ this.props.style]}>
-          {this._renderChildren()}
-        </View>
-      </TouchableOpacity>
-    );
+    return activeOpacity != null ? activeOpacity : systemButtonOpacity;
   }
 
   _renderChildren() {
-    const { icon, foreColor, block, disabled, iconSize } = this.props;
+    const {
+      icon,
+      foreColor,
+      block,
+      disabled,
+      iconSize,
+      iconStyle,
+      iconContainerStyle,
+    } = this.props;
 
-    const iconContainerStyle = {
+    const defaultIconContainerStyle = {
       flex: 0,
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
-      maxWidth: block ? null : 110
+      maxWidth: block ? null : 110,
     };
 
-    const iconStyle = {
+    const defaultIconStyle = {
       marginRight: 6,
-      marginBottom: 1
+      marginBottom: 1,
     };
 
     if (icon) {
       return (
-        <View style={[iconContainerStyle, this.props.iconContainerStyle]}>
-          <Icon size={iconSize} name={icon} color={foreColor} disabled={disabled} style={[iconStyle, this.props.iconStyle]}/>
+        <View style={[defaultIconContainerStyle, iconContainerStyle]}>
+          <Icon
+            size={iconSize}
+            name={icon}
+            color={foreColor}
+            disabled={disabled}
+            style={[defaultIconStyle, iconStyle]}
+          />
           {this._renderGroupedChildren()}
         </View>
-      )
+      );
     }
     return this._renderGroupedChildren();
   }
 
   _renderGroupedChildren() {
-    let { disabled, foreColor, numberOfLines, textStyle, textContainerStyle } = this.props;
-    let style = [
-      styles.text,
-      foreColor ? { color: foreColor } : null,
-      this.props.style
-    ];
+    const { text, foreColor, numberOfLines, textStyle, textContainerStyle } = this.props;
+    const style = [styles.text, foreColor ? { color: foreColor } : null, this.props.style]; // eslint-disable-line react/destructuring-assignment
 
-    const childs = this.props.text ? [this.props.text] : this.props.children;
+    const childs = text ? [text] : this.props.children; // eslint-disable-line react/destructuring-assignment
 
-    let children = coalesceNonElementChildren(childs, (children, index) => {
-      return (
-        <Text key={index} style={[style, textStyle]} numberOfLines={numberOfLines || 1} ellipsizeMode={'tail'}>
-          { children.map(c => typeof c === 'string' ? c.toUpperCase() : c) }
-        </Text>
-      );
-    });
+    const children = coalesceNonElementChildren(childs, (cldrn, index) => (
+      <Text
+        key={index}
+        style={[style, textStyle]}
+        numberOfLines={numberOfLines || 1}
+        ellipsizeMode="tail"
+      >
+        {cldrn.map(c => (typeof c === 'string' ? c.toUpperCase() : c))}
+      </Text>
+    ));
 
     switch (children.length) {
       case 0:
@@ -113,51 +88,100 @@ export class PrimitiveButton extends Component {
     }
   }
 
-  _computeActiveOpacity() {
-    if (this.props.disabled) {
-      return 1;
+  render() {
+    const {
+      block,
+      backgroundColor,
+      borderColor,
+      marginRight,
+      marginLeft,
+      containerStyle,
+      disabled,
+      onPress,
+      onPressIn,
+      onPressOut,
+      onLongPress,
+      testID,
+      style,
+    } = this.props;
+
+    const touchableProps = {
+      activeOpacity: this._computeActiveOpacity(),
+    };
+
+    const touchableStyle = [
+      styles.container,
+      backgroundColor ? { backgroundColor } : null,
+      borderColor ? { borderColor, borderWidth: 1 } : null,
+      !block ? styles.containerMinWidth : null,
+      marginLeft ? { marginLeft: 10 } : 0,
+      marginRight ? { marginRight: 10 } : 0,
+      containerStyle,
+    ];
+
+    if (!disabled) {
+      touchableProps.onPress = onPress;
+      touchableProps.onPressIn = onPressIn;
+      touchableProps.onPressOut = onPressOut;
+      touchableProps.onLongPress = onLongPress;
     }
-    return this.props.activeOpacity != null ?
-      this.props.activeOpacity :
-      systemButtonOpacity;
+
+    return (
+      <TouchableOpacity
+        {...touchableProps}
+        testID={testID}
+        style={touchableStyle}
+        accessibilityTraits="button"
+        accessibilityComponentType="button"
+      >
+        <View style={[style]}>{this._renderChildren()}</View>
+      </TouchableOpacity>
+    );
   }
-};
+}
 
-
+// eslint-disable-next-line react/no-multi-comp
 class Button extends Component {
   render() {
-    const { icon, primary, secondary, tertiary, block, disabled, marginRight, marginLeft, offlineAware, isOffline } = this.props;
+    const { primary, secondary, tertiary, disabled, offlineAware, isOffline } = this.props;
 
-    const finalDisabled = disabled || offlineAware && isOffline();
+    const finalDisabled = disabled || (offlineAware && isOffline());
 
-    const backgroundColor = getColor({
-      info: primary && !finalDisabled,
-      lightGray: secondary && !finalDisabled
-    }, finalDisabled && (primary || secondary || tertiary) ? colors.lightGray : colors.white)
+    const backgroundColor = getColor(
+      {
+        info: primary && !finalDisabled,
+        lightGray: secondary && !finalDisabled,
+      },
+      finalDisabled && (primary || secondary || tertiary) ? colors.lightGray : colors.white
+    );
 
-    const foreColor = getColor({
-      info: !primary && !secondary && !tertiary && !finalDisabled,
-      white: primary && !finalDisabled
-    }, finalDisabled ? colors.borderGray : colors.textGray)
+    const foreColor = getColor(
+      {
+        info: !primary && !secondary && !tertiary && !finalDisabled,
+        white: primary && !finalDisabled,
+      },
+      finalDisabled ? colors.borderGray : colors.textGray
+    );
 
-    const borderColor = getColor({
-      info: primary && !finalDisabled,
-      lightGray: secondary && !finalDisabled,
-      borderGray: tertiary && !finalDisabled
-    }, finalDisabled && (primary || secondary || tertiary) ? colors.lightGray : colors.white)
+    const borderColor = getColor(
+      {
+        info: primary && !finalDisabled,
+        lightGray: secondary && !finalDisabled,
+        borderGray: tertiary && !finalDisabled,
+      },
+      finalDisabled && (primary || secondary || tertiary) ? colors.lightGray : colors.white
+    );
 
-    return <PrimitiveButton
-      backgroundColor={backgroundColor}
-      foreColor={foreColor}
-      borderColor={borderColor}
-      {...this.props}
-      disabled={finalDisabled}
-    />
-
+    return (
+      <PrimitiveButton
+        backgroundColor={backgroundColor}
+        foreColor={foreColor}
+        borderColor={borderColor}
+        {...this.props}
+        disabled={finalDisabled}
+      />
+    );
   }
+}
 
-
-};
-
-const Extended = visualProvided(Button);
-export default Extended;
+export default visualProvided(Button);

@@ -1,4 +1,11 @@
+### 1.1.0
+
+- clean out needed peer dependencies from dependencies
+- added prettier and eslint to get consistent formating and linting
+- move proptypes to dependencies
+
 ### 1.0.13
+
 - adds LoginAreaView
 
 ### 1.0.11

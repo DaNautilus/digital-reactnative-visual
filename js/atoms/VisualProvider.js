@@ -5,48 +5,51 @@ export class VisualProvider extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      offline: this.props.offline || false,
-      t: this.props.t || (key => key)
+      offline: props.offline || false,
+      t: props.t || (key => key),
     };
   }
 
   getChildContext() {
+    const { offline, t } = this.state;
     return {
-      isOffline: () => this.state.offline,
-      translate: this.state.t
+      isOffline: () => offline,
+      translate: t,
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.offline !== this.props.offline) this.setState({ offline: nextProps.offline });
+    if (nextProps.offline !== this.props.offline) this.setState({ offline: nextProps.offline }); // eslint-disable-line react/destructuring-assignment
   }
 
   render() {
-    return this.props.children;
+    return this.props.children; // eslint-disable-line react/destructuring-assignment
   }
 }
 
-VisualProvider.propTypes = {
-  children: PropTypes.node,
-  t: PropTypes.func
-};
-
 VisualProvider.childContextTypes = {
   isOffline: PropTypes.func,
-  translate: PropTypes.func
+  translate: PropTypes.func,
 };
 
 export function visualProvided(Component) {
   // eslint-disable-next-line react/no-multi-comp, react/prefer-stateless-function
   class VisualProviderPropsHoc extends React.Component {
     render() {
-      return <Component {...this.props} isOffline={this.context.isOffline || (() => (false))} t={this.context.translate || (k => (k))} />;
+      const { isOffline, translate } = this.context;
+      return (
+        <Component
+          {...this.props}
+          isOffline={isOffline || (() => false)}
+          t={translate || (k => k)}
+        />
+      );
     }
   }
 
   VisualProviderPropsHoc.contextTypes = {
     isOffline: PropTypes.func,
-    translate: PropTypes.func
+    translate: PropTypes.func,
   };
 
   return VisualProviderPropsHoc;

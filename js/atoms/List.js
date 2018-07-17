@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { SectionList, FlatList, RefreshControl, View } from 'react-native';
 
 import { Text } from './Typography';
-import ListItem from './List.Item'
+import ListItem from './List.Item';
 
 import styles from './List.style.js';
 
 export default class List extends Component {
+  // eslint-disable-next-line class-methods-use-this
   _renderSectionHeader({ section }) {
     return (
       <View style={styles.sectionHeader}>
@@ -15,15 +16,24 @@ export default class List extends Component {
     );
   }
 
+  // eslint-disable-next-line class-methods-use-this
   _renderSeparator() {
-    var style = styles.rowSeparator;
-    return (
-      <View style={style}/>
-    );
+    const style = styles.rowSeparator;
+    return <View style={style} />;
   }
 
   render() {
-    const { data, renderSectionHeader, renderSeparator, renderItem, withSections, onRefresh, isRefreshing, refreshDescription, ...props } = this.props;
+    const {
+      data,
+      renderSectionHeader,
+      renderSeparator,
+      renderItem,
+      withSections,
+      onRefresh,
+      isRefreshing,
+      refreshDescription,
+      ...props
+    } = this.props;
 
     let RefreshComponent = null;
     if (onRefresh) {
@@ -44,12 +54,11 @@ export default class List extends Component {
           ItemSeparatorComponent={renderSeparator || this._renderSeparator}
           {...props}
         />
-      )
+      );
     }
 
     return (
       <SectionList
-        ref="listView"
         refreshControl={RefreshComponent}
         sections={data}
         renderItem={renderItem}

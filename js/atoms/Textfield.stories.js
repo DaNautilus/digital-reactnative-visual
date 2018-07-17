@@ -2,11 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 
 import { storiesOf } from '@storybook/react-native';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
 
 import Textfield from './Textfield';
-import { H1, H2, P, Label, Hint } from './Typography';
+import { H1 } from './Typography';
 import Card from './Card';
 import { Page } from './Layout';
 import * as colors from '../colors';
@@ -21,7 +19,15 @@ storiesOf('Textfield', module)
   // )
   .add('samples', () => (
     <Page>
-      <View style={{ flex: 1, justifyContent: 'flex-start', backgroundColor: colors.backgroundGray, padding: 10, paddingTop: 0 }}>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'flex-start',
+          backgroundColor: colors.backgroundGray,
+          padding: 10,
+          paddingTop: 0,
+        }}
+      >
         <Textfield icon="icon-search" placeholder="search" noBorder />
       </View>
       <Card>

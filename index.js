@@ -14,7 +14,13 @@ export { default as Swipeable } from './js/atoms/Swipeable';
 export { default as ImageCropper } from './js/atoms/ImageCropper';
 export { default as QRCode } from './js/atoms/QRCode';
 export { VisualProvider, visualProvided } from './js/atoms/VisualProvider';
-export { readonly, readonlyAsProp, ReadonlyToggleButton, ReadonlyPanel, ReadonlyProvider } from './js/atoms/Readonly';
+export {
+  readonly,
+  readonlyAsProp,
+  ReadonlyToggleButton,
+  ReadonlyPanel,
+  ReadonlyProvider,
+} from './js/atoms/Readonly';
 
 export { default as Notification } from './js/atoms/Notification';
 export { default as Snack } from './js/molecules/Snack';

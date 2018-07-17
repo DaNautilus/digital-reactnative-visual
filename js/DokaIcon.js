@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 /**
  * DokaIcon icon set component.
  * Usage: <DokaIcon name="icon-name" size={20} color="#4F8EF7" />

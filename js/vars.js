@@ -1,10 +1,10 @@
 export const sansserif = {
   light: 'Poppins-Light',
-  semibold: 'Poppins-SemiBold'
-}
+  semibold: 'Poppins-SemiBold',
+};
 
 const vars = {
-  sansserif
+  sansserif,
 };
 
 export default vars;

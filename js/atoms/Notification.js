@@ -1,19 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { View } from 'react-native';
 
 import { Text } from './Typography';
 import Icon from './Icon';
 
 import styles from './Notification.style.js';
-import * as colors from '../colors';
 
 import { getColor } from '../utils/colors';
 
 export default function Notification({ style, children, ...props }) {
-  let finalColor = getColor(props);
+  const finalColor = getColor(props);
 
-  let icon = props.icon;
+  let icon = props.icon; // eslint-disable-line
   if (!icon) {
     if (props.success) icon = 'icon-success';
     if (props.error) icon = 'icon-warningtriangle';
@@ -24,7 +22,9 @@ export default function Notification({ style, children, ...props }) {
   return (
     <View style={[styles.container, { backgroundColor: finalColor }, style]}>
       <Icon white name={icon} style={{ marginRight: 5 }} />
-      <Text white style={{ fontSize: 14 }}>{children}</Text>
+      <Text white style={{ fontSize: 14 }}>
+        {children}
+      </Text>
     </View>
   );
 }

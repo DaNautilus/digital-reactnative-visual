@@ -1,7 +1,6 @@
 // https://github.com/kyoyadmoon/react-native-icon-checkbox/blob/master/CheckBox.js
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View, StyleSheet, Text as RText} from 'react-native';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 
 import { Text } from './Typography';
 
@@ -9,15 +8,17 @@ import Icon from '../DokaIcon';
 import * as colors from '../colors';
 import * as vars from '../vars';
 
+/* eslint-disable react/destructuring-assignment */
 export default function CheckBox(props) {
   let iconName = props.checked ? props.checkedIconName : props.uncheckedIconName;
-  if (props.asRadio) iconName = props.checked ? props.radioCheckedIconName : props.radioUncheckedIconName;
+  if (props.asRadio)
+    iconName = props.checked ? props.radioCheckedIconName : props.radioUncheckedIconName;
   const styles = StyleSheet.create({
     label: {
       fontSize: 16,
       color: colors.textGray,
       fontFamily: vars.sansserif.light,
-      marginTop: 2
+      marginTop: 2,
     },
     icon: {
       marginLeft: -10,
@@ -41,32 +42,11 @@ export default function CheckBox(props) {
       underlayColor={props.underlayColor}
       borderRadius={props.borderRadius}
     >
-      <Text
-        style={[styles.label, props.labelStyle]}
-      >
-        {props.label}
-      </Text>
+      <Text style={[styles.label, props.labelStyle]}>{props.label}</Text>
     </Icon.Button>
   );
 }
-
-CheckBox.propTypes = {
-  size: PropTypes.number,
-  checked: PropTypes.bool,
-  asRadio: PropTypes.bool,
-  label: PropTypes.string,
-  labelStyle: RText.propTypes.style,
-  iconStyle: RText.propTypes.style,
-  checkedIconStyle: RText.propTypes.style,
-  color: PropTypes.string,
-  backgroundColor: PropTypes.string,
-  onPress: PropTypes.func,
-  underlayColor: PropTypes.string,
-  activeOpacity: PropTypes.number,
-  borderRadius: PropTypes.number,
-  uncheckedIconName: PropTypes.string,
-  checkedIconName: PropTypes.string,
-};
+/* eslint-enable react/destructuring-assignment */
 
 CheckBox.defaultProps = {
   size: 30,

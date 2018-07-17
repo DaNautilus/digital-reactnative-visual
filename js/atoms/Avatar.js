@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { Text } from './Typography';
 import ColorHash from 'color-hash';
+import { Text } from './Typography';
 
 import styles from './Avatar.style.js';
 import Icon from './Icon';
@@ -14,12 +14,26 @@ export default class Avatar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      failedLoading: false
+      failedLoading: false,
     };
   }
 
   render() {
-    const { name = '', width = 44, border, src, icon, headers = {}, circle, xlarge, large, small, xsmall, style, editable, ...rest } = this.props;
+    const {
+      name = '',
+      width = 44,
+      border,
+      src,
+      icon,
+      headers = {},
+      circle,
+      xlarge,
+      large,
+      small,
+      xsmall,
+      style,
+      ...rest
+    } = this.props;
     const { failedLoading } = this.state;
 
     let initials = '';
@@ -27,7 +41,8 @@ export default class Avatar extends React.Component {
 
     p.forEach(str => {
       const f = str.charAt(0).toUpperCase();
-      if (f.match(/^[\wÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜäëïöüçÇßØøÅåÆæÞþÐð]$/)) initials += f;
+      if (f.match(/^[\wÀÈÌÒÙàèìòùÁÉÍÓÚÝáéíóúýÂÊÎÔÛâêîôûÃÑÕãñõÄËÏÖÜäëïöüçÇßØøÅåÆæÞþÐð]$/))
+        initials += f;
     });
 
     initials = initials.length > 3 ? initials.substring(0, 3) : initials;
@@ -44,13 +59,13 @@ export default class Avatar extends React.Component {
     if (large) finalWidth = 66;
     if (small) finalWidth = 36;
     if (xsmall) finalWidth = 26;
-    //if (border) finalWidth = finalWidth - 2;
+    // if (border) finalWidth = finalWidth - 2;
     const additionalContainerStyle = {
       backgroundColor: src && !failedLoading ? 'transparent' : bg,
       width: finalWidth,
       height: finalWidth,
       borderRadius: circle ? finalWidth / 2 : 0,
-    }
+    };
     const additionalBorderStyle = {
       position: 'absolute',
       top: 0,
@@ -58,14 +73,14 @@ export default class Avatar extends React.Component {
       width: finalWidth,
       height: finalWidth,
       borderWidth: Math.round(finalWidth / 20) || 1,
-      borderColor: borderColor,
+      borderColor,
       borderRadius: circle ? finalWidth / 2 : 0,
-      opacity: src && !failedLoading ? 0.66 : 1
-    }
+      opacity: src && !failedLoading ? 0.66 : 1,
+    };
     const additionalTextStyle = {
-      fontSize: finalWidth > 96 ? finalWidth / 4 : (small || xsmall) ? 12 : 16,
-      fontFamily: (small || xsmall) ? vars.sansserif.light : vars.sansserif.semibold
-    }
+      fontSize: finalWidth > 96 ? finalWidth / 4 : small || xsmall ? 12 : 16,
+      fontFamily: small || xsmall ? vars.sansserif.light : vars.sansserif.semibold,
+    };
 
     const useWhiteColor = !rest.lightGray && !rest.borderGray && !rest.white;
 
@@ -73,13 +88,11 @@ export default class Avatar extends React.Component {
       return (
         <View style={[styles.container, additionalContainerStyle, style]}>
           <Image
-            onError={e => this.setState({ failedLoading: true })}
+            onError={() => this.setState({ failedLoading: true })}
             style={additionalContainerStyle}
-            source={{uri: src, headers}}
+            source={{ uri: src, headers }}
           />
-          {
-            border && <View style={additionalBorderStyle} />
-          }
+          {border && <View style={additionalBorderStyle} />}
         </View>
       );
     }
@@ -87,20 +100,22 @@ export default class Avatar extends React.Component {
     if (icon) {
       return (
         <View style={[styles.container, additionalContainerStyle, style]}>
-          <Icon name={icon} white={useWhiteColor} size={finalWidth > 100 ? finalWidth * 0.7 : null} />
-          {
-            border && <View style={additionalBorderStyle} />
-          }
+          <Icon
+            name={icon}
+            white={useWhiteColor}
+            size={finalWidth > 100 ? finalWidth * 0.7 : null}
+          />
+          {border && <View style={additionalBorderStyle} />}
         </View>
       );
     }
 
     return (
       <View style={[styles.container, additionalContainerStyle, style]}>
-        <Text style={additionalTextStyle} white={useWhiteColor}>{initials}</Text>
-        {
-          border && <View style={additionalBorderStyle} />
-        }
+        <Text style={additionalTextStyle} white={useWhiteColor}>
+          {initials}
+        </Text>
+        {border && <View style={additionalBorderStyle} />}
       </View>
     );
   }
