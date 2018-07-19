@@ -13,7 +13,7 @@ export { default as List } from './js/atoms/List';
 export { default as Swipeable } from './js/atoms/Swipeable';
 export { default as ImageCropper } from './js/atoms/ImageCropper';
 export { default as QRCode } from './js/atoms/QRCode';
-export { VisualProvider, visualProvided } from './js/atoms/VisualProvider';
+export { VisualProvider, visualProvided, VisualContext } from './js/atoms/VisualProvider';
 export {
   readonly,
   readonlyAsProp,
