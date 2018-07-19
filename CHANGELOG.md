@@ -1,3 +1,7 @@
+### 1.2.0
+
+- start using new context API for visual provider
+
 ### 1.1.0
 
 - clean out needed peer dependencies from dependencies
