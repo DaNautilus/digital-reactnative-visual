@@ -8,9 +8,9 @@ import * as colors from '../colors';
 
 class IconButton extends Component {
   render() {
-    const { primary, disabled, offlineAware, isOffline } = this.props;
+    const { primary, disabled, offlineAware, offline } = this.props;
 
-    const finalDisabled = disabled || (offlineAware && isOffline());
+    const finalDisabled = disabled || (offlineAware && offline;
 
     const foreColor = getColor(
       {

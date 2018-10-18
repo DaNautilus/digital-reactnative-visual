@@ -26,7 +26,7 @@ class Select extends React.Component {
       style,
       disabled,
       offlineAware,
-      isOffline,
+      offline,
     } = this.props;
 
     let borderColor = colors.borderGray;
@@ -45,7 +45,7 @@ class Select extends React.Component {
 
     const showValue = value && data && data.length ? data.find(d => d.key === value) : '';
 
-    if (disabled || (isOffline() && offlineAware))
+    if (disabled || (offlineAware && offline))
       return (
         <View style={[{ marginTop: noMargin ? 0 : 10 }, style]}>
           {label && <Label {...{ bold, info, success, warning, error }}>{labelText}</Label>}

@@ -1,3 +1,7 @@
+### 1.2.1
+
+- fix offline usage in Button, IconButton, Select
+
 ### 1.2.0
 
 - start using new context API for visual provider

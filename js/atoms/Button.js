@@ -143,9 +143,9 @@ export class PrimitiveButton extends Component {
 // eslint-disable-next-line react/no-multi-comp
 class Button extends Component {
   render() {
-    const { primary, secondary, tertiary, disabled, offlineAware, isOffline } = this.props;
+    const { primary, secondary, tertiary, disabled, offlineAware, offline } = this.props;
 
-    const finalDisabled = disabled || (offlineAware && isOffline());
+    const finalDisabled = disabled || (offlineAware && offline);
 
     const backgroundColor = getColor(
       {
