@@ -1,3 +1,7 @@
+### 1.2.2
+
+- fix typo in IconButton
+
 ### 1.2.1
 
 - fix offline usage in Button, IconButton, Select
