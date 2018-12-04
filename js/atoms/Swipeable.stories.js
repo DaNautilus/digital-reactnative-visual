@@ -29,16 +29,16 @@ class Example1 extends React.Component {
         rightActionActivationDistance={100}
         rightContent={
           !rightActionActivated ? (
-            <Swipeable.Icon icon="icon-recyclebin" error onPress={action('clicked-button')} />
+            <Swipeable.Icon icon="14035" error onPress={action('clicked-button')} />
           ) : (
-            <Swipeable.Icon icon="icon-success" success onPress={action('clicked-button')} />
+            <Swipeable.Icon icon="14031" success onPress={action('clicked-button')} />
           )
         }
         onRightActionActivate={() => this.setState({ rightActionActivated: true })}
         onRightActionDeactivate={() => this.setState({ rightActionActivated: false })}
         onRightActionComplete={() => this.setState({ toggle: !toggle })}
       >
-        <List.Item onPress={action('clicked-item')} icon="icon-persons">
+        <List.Item onPress={action('clicked-item')} icon="06011">
           <Text>With Swipe action</Text>
         </List.Item>
       </Swipeable>
@@ -74,7 +74,7 @@ class Example2 extends React.Component {
         onRightActionDeactivate={() => this.setState({ rightActionActivated: false })}
         onRightActionComplete={() => this.setState({ toggle: !toggle })}
       >
-        <List.Item onPress={action('clicked-item')} icon="icon-persons">
+        <List.Item onPress={action('clicked-item')} icon="06011">
           <Text>With Swipe action</Text>
         </List.Item>
       </Swipeable>
@@ -87,17 +87,15 @@ storiesOf('Swipeable', module)
   .add('samples', () => (
     <View style={{ marginTop: 10 }}>
       <Swipeable
-        rightButtons={[
-          <Swipeable.Icon icon="icon-recyclebin" error onPress={action('clicked-button')} />,
-        ]}
+        rightButtons={[<Swipeable.Icon icon="14035" error onPress={action('clicked-button')} />]}
         leftButtons={[
-          <Swipeable.Icon left icon="icon-admin" info onPress={action('clicked-button')} />,
-          <Swipeable.Icon left icon="icon-success" success onPress={action('clicked-button')} />,
+          <Swipeable.Icon left icon="06022" info onPress={action('clicked-button')} />,
+          <Swipeable.Icon left icon="14031" success onPress={action('clicked-button')} />,
         ]}
         // rightActionActivationDistance={140}
         // onRightActionRelease={() => { action('release-right-item')() }}
       >
-        <List.Item onPress={action('clicked-item')} icon="icon-persons">
+        <List.Item onPress={action('clicked-item')} icon="06011">
           <Text>With Buttons</Text>
         </List.Item>
       </Swipeable>
@@ -123,7 +121,7 @@ storiesOf('Swipeable', module)
         // rightActionActivationDistance={140}
         // onRightActionRelease={() => { action('release-right-item')() }}
       >
-        <List.Item onPress={action('clicked-item')} icon="icon-persons">
+        <List.Item onPress={action('clicked-item')} icon="06011">
           <Text>With Buttons</Text>
         </List.Item>
       </Swipeable>

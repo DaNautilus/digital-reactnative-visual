@@ -16,16 +16,16 @@ storiesOf('IconButton', module)
   ))
   .add('samples', () => (
     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-      <IconButton icon="icon-news" onPress={action('clicked-text')}>
+      <IconButton icon="17016" onPress={action('clicked-text')}>
         text&icon
       </IconButton>
-      <IconButton icon="icon-badge" onPress={action('clicked-text')}>
+      <IconButton icon="17021" onPress={action('clicked-text')}>
         text & icon
       </IconButton>
-      <IconButton icon="icon-admin" primary onPress={action('clicked-text')}>
+      <IconButton icon="06022" primary onPress={action('clicked-text')}>
         text & icon
       </IconButton>
-      <IconButton icon="icon-door" disabled onPress={action('clicked-text')}>
+      <IconButton icon="21001" disabled onPress={action('clicked-text')}>
         text&icon&tolongforeverything
       </IconButton>
     </View>

@@ -59,8 +59,8 @@ CheckBox.defaultProps = {
   underlayColor: 'rgba(0,0,0,0)',
   activeOpacity: 1,
   borderRadius: 5,
-  uncheckedIconName: 'icon-unchecked',
-  checkedIconName: 'icon-checked',
-  radioUncheckedIconName: 'icon-radiounchecked',
-  radioCheckedIconName: 'icon-radiochecked',
+  uncheckedIconName: '17029',
+  checkedIconName: '17030',
+  radioUncheckedIconName: '19017',
+  radioCheckedIconName: '19018',
 };

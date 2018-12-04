@@ -54,7 +54,7 @@ class Select extends React.Component {
               {showValue.label || placeholder}
             </Text>
             <Icon
-              name="icon-dropdown"
+              name="140224"
               info
               style={{ position: 'absolute', right: 5, top: Platform.OS === 'ios' ? 4 : 12 }}
               disabled
@@ -72,7 +72,7 @@ class Select extends React.Component {
               {showValue.label || placeholder}
             </Text>
             <Icon
-              name="icon-dropdown"
+              name="140224"
               info
               style={{ position: 'absolute', right: 5, top: Platform.OS === 'ios' ? 4 : 12 }}
             />

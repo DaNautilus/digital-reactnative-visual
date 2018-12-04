@@ -82,7 +82,7 @@ storiesOf('AnimatedAvatarView', module)
     </AnimatedAvatarView>
   ))
   .add('Sample with icon', () => (
-    <AnimatedAvatarView icon="icon-keyfob" lightGray border="success">
+    <AnimatedAvatarView icon="12012" lightGray border="success">
       <Row>
         <Col>
           <Card>

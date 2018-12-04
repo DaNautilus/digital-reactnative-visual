@@ -19,9 +19,20 @@ npm run ios
 
 # create dormakaba icons
 
+Download latest icons from https://design.dormakaba.com
+
+Place the needed files in ./assets/css and ./assets/fonts
+
+- dormakabaIcons.css
+- dormakabaIcons.ttf
+
+Then run:
+
 ```bash
-./node_modules/.bin/generate-icon ../taibika-visual/src/assets/css/doka-iconfont.css --componentName=DokaIcon --fontFamily=Doka_Iconfont --p .doka- > ./DokaIcon_new.js
+./node_modules/.bin/generate-icon ../digital-reactnative-visual/assets/css/dormakabaIcons.css --componentName=DokaIcon --fontFamily=dormakabaIcons --p .ico- > ./DokaIcon_new.js
 ```
+
+export the glyphmap to be importable by the all icons story
 
 # run on device
 
@@ -32,7 +43,6 @@ a) set host in /storybook/storybook.js
 `const StorybookUI = getStorybookUI({ port: 7007, onDeviceUI: false, host: '169.254.243.196' });`
 
 b) start from xcode (being on same network as device)
-
 
 ## android
 

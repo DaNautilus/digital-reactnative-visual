@@ -28,10 +28,10 @@ storiesOf('Icon', module)
           justifyContent: 'space-around',
         }}
       >
-        <Icon name="icon-news" small />
-        <Icon name="icon-news" />
-        <Icon name="icon-news" large />
-        <Icon name="icon-news" xlarge />
+        <Icon name="17016" small />
+        <Icon name="17016" />
+        <Icon name="17016" large />
+        <Icon name="17016" xlarge />
       </View>
       <View
         style={{
@@ -41,10 +41,10 @@ storiesOf('Icon', module)
           justifyContent: 'space-around',
         }}
       >
-        <Icon name="icon-news" success />
-        <Icon name="icon-news" warning />
-        <Icon name="icon-news" error />
-        <Icon name="icon-news" info />
+        <Icon name="17016" success />
+        <Icon name="17016" warning />
+        <Icon name="17016" error />
+        <Icon name="17016" info />
       </View>
       <View
         style={{
@@ -54,9 +54,9 @@ storiesOf('Icon', module)
           justifyContent: 'space-around',
         }}
       >
-        <Icon name="icon-news" highlight />
-        <Icon name="icon-news" gray />
-        <Icon name="icon-news" white />
+        <Icon name="17016" highlight />
+        <Icon name="17016" gray />
+        <Icon name="17016" white />
       </View>
     </View>
   ))

@@ -79,10 +79,10 @@ storiesOf('Avatar', module)
           justifyContent: 'space-around',
         }}
       >
-        <Avatar icon="icon-news" info circle />
-        <Avatar icon="icon-news" error circle />
-        <Avatar icon="icon-news" warning circle />
-        <Avatar icon="icon-news" success circle />
+        <Avatar icon="17016" info circle />
+        <Avatar icon="17016" error circle />
+        <Avatar icon="17016" warning circle />
+        <Avatar icon="17016" success circle />
       </View>
       <View
         style={{
@@ -93,10 +93,10 @@ storiesOf('Avatar', module)
           justifyContent: 'space-around',
         }}
       >
-        <Avatar icon="icon-news" lightGray circle />
-        <Avatar icon="icon-news" borderGray circle />
-        <Avatar icon="icon-news" labelGray circle />
-        <Avatar icon="icon-news" darkGray circle />
+        <Avatar icon="17016" lightGray circle />
+        <Avatar icon="17016" borderGray circle />
+        <Avatar icon="17016" labelGray circle />
+        <Avatar icon="17016" darkGray circle />
       </View>
       <View
         style={{
@@ -196,10 +196,10 @@ storiesOf('Avatar', module)
           justifyContent: 'space-around',
         }}
       >
-        <Avatar icon="icon-news" lightGray circle border="info" />
-        <Avatar icon="icon-news" borderGray circle border="error" />
-        <Avatar icon="icon-news" labelGray circle border="warning" />
-        <Avatar icon="icon-news" darkGray circle border="success" />
+        <Avatar icon="17016" lightGray circle border="info" />
+        <Avatar icon="17016" borderGray circle border="error" />
+        <Avatar icon="17016" labelGray circle border="warning" />
+        <Avatar icon="17016" darkGray circle border="success" />
       </View>
       <View
         style={{

@@ -369,7 +369,7 @@ class ReloadSample extends Component {
           renderItem={({ item }) => (
             <List.Item
               onPress={action('clicked-item')}
-              icon="icon-persons"
+              icon="06029"
               success={item.firstname.charAt(0) === 'J'}
               warning={item.firstname.charAt(0) === 'L'}
             >
@@ -413,7 +413,7 @@ storiesOf('List', module)
         renderItem={({ item }) => (
           <List.Item
             onPress={action('clicked-item')}
-            icon="icon-persons"
+            icon="06029"
             success={item.firstname.charAt(0) === 'J'}
             warning={item.firstname.charAt(0) === 'L'}
           >
@@ -436,8 +436,8 @@ storiesOf('List', module)
             warning={item.firstname.charAt(0) === 'L'}
             title={`${item.firstname} ${item.lastname}`}
             text="glorem ipsum dolores opsi quantum oretasi."
-            icon="icon-badge"
-            rightIcon="icon-profile"
+            icon="17021"
+            rightIcon="06029"
           />
         )}
       />

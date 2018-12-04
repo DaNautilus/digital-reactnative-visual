@@ -47,7 +47,7 @@ storiesOf('AnimatedPanelList', module)
             paddingTop: 0,
           }}
         >
-          <Textfield icon="icon-search" placeholder="search" noBorder />
+          <Textfield icon="10002" placeholder="search" noBorder />
           <Button primary block containerStyle={{ marginTop: 10 }}>
             Add Person
           </Button>
@@ -60,8 +60,8 @@ storiesOf('AnimatedPanelList', module)
           warning={item.firstname.charAt(0) === 'L'}
           title={`${item.firstname} ${item.lastname}`}
           text="lorem ipsum dolores opsi quantum oretasi."
-          icon="icon-badge"
-          rightIcon="icon-profile"
+          icon="17021"
+          rightIcon="06011"
         />
       )}
     />

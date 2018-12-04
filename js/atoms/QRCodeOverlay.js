@@ -94,7 +94,7 @@ export default class QRCodeScannerOverlay extends Component {
               },
             ]}
           />
-          {found && <Icon name="icon-success" success xlarge />}
+          {found && <Icon name="14031" success xlarge />}
         </Animated.View>
       </View>
     );

@@ -28,7 +28,7 @@ storiesOf('Textfield', module)
           paddingTop: 0,
         }}
       >
-        <Textfield icon="icon-search" placeholder="search" noBorder />
+        <Textfield icon="10002" placeholder="search" noBorder />
       </View>
       <Card>
         <View style={{ flex: 1, justifyContent: 'flex-start' }}>

@@ -1,3 +1,12 @@
+### 2.0.0
+
+- using now the official Iconset provided by design.dormakaba.com
+
+Migration:
+
+- use new Icon names in form "12093" (just the numbers given on the Iconset webpage or [here](https://dormakaba-digital.github.io/digital-html-visual/?selectedKind=Icons&selectedStory=all%20icons&full=0&addons=1&stories=1&panelRight=0&addonPanel=storybook%2Fnotes%2Fpanel) )
+- replace the old embedded Iconfont with ./assets/fonts/dormakabaIcons.ttf
+
 ### 1.2.2
 
 - fix typo in IconButton

@@ -82,10 +82,10 @@ storiesOf('Button', module)
           justifyContent: 'space-around',
         }}
       >
-        <Button icon="icon-news" onPress={action('clicked-text')}>
+        <Button icon="17016" onPress={action('clicked-text')}>
           text&icon
         </Button>
-        <Button icon="icon-news" disabled onPress={action('clicked-text')}>
+        <Button icon="17016" disabled onPress={action('clicked-text')}>
           text&icon
         </Button>
       </View>
@@ -97,10 +97,10 @@ storiesOf('Button', module)
           justifyContent: 'space-around',
         }}
       >
-        <Button icon="icon-news" primary onPress={action('clicked-text')}>
+        <Button icon="17016" primary onPress={action('clicked-text')}>
           primary&icon
         </Button>
-        <Button icon="icon-news" primary disabled onPress={action('clicked-text')}>
+        <Button icon="17016" primary disabled onPress={action('clicked-text')}>
           primary&icon
         </Button>
       </View>
@@ -112,10 +112,10 @@ storiesOf('Button', module)
           justifyContent: 'space-around',
         }}
       >
-        <Button icon="icon-news" secondary onPress={action('clicked-text')}>
+        <Button icon="17016" secondary onPress={action('clicked-text')}>
           secondary&icon
         </Button>
-        <Button icon="icon-news" secondary disabled onPress={action('clicked-text')}>
+        <Button icon="17016" secondary disabled onPress={action('clicked-text')}>
           secondary&icon
         </Button>
       </View>
@@ -127,10 +127,10 @@ storiesOf('Button', module)
           justifyContent: 'space-around',
         }}
       >
-        <Button icon="icon-news" tertiary onPress={action('clicked-text')}>
+        <Button icon="17016" tertiary onPress={action('clicked-text')}>
           tertiary&icon
         </Button>
-        <Button icon="icon-news" tertiary disabled onPress={action('clicked-text')}>
+        <Button icon="17016" tertiary disabled onPress={action('clicked-text')}>
           tertiary&icon
         </Button>
       </View>
@@ -154,16 +154,16 @@ storiesOf('Button', module)
         <Button block tertiary onPress={action('clicked-text')}>
           la le lu
         </Button>
-        <Button block icon="icon-news" onPress={action('clicked-text')}>
+        <Button block icon="17016" onPress={action('clicked-text')}>
           la le lu
         </Button>
-        <Button block icon="icon-news" primary onPress={action('clicked-text')}>
+        <Button block icon="17016" primary onPress={action('clicked-text')}>
           la le lu
         </Button>
-        <Button block icon="icon-news" secondary onPress={action('clicked-text')}>
+        <Button block icon="17016" secondary onPress={action('clicked-text')}>
           la le lu
         </Button>
-        <Button block icon="icon-news" tertiary onPress={action('clicked-text')}>
+        <Button block icon="17016" tertiary onPress={action('clicked-text')}>
           la le lu
         </Button>
       </View>

@@ -13,10 +13,10 @@ export default function Notification({ style, children, ...props }) {
 
   let icon = props.icon; // eslint-disable-line
   if (!icon) {
-    if (props.success) icon = 'icon-success';
-    if (props.error) icon = 'icon-warningtriangle';
-    if (props.warning) icon = 'icon-warningbubble';
-    if (!icon) icon = 'icon-info';
+    if (props.success) icon = '14031';
+    if (props.error) icon = '15002';
+    if (props.warning) icon = '15001';
+    if (!icon) icon = '14002';
   }
 
   return (

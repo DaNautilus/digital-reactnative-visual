@@ -38,10 +38,10 @@ class IconButton extends Component {
           paddingHorizontal: 5,
         }}
         style={{ width: 78 }}
-        textContainerStyle={{ marginTop: -5, justifyContent: 'center', height: 30 }}
+        textContainerStyle={{ marginTop: 2, justifyContent: 'center', height: 30 }}
         textStyle={{ width: 70, fontSize: 12, lineHeight: 15 }}
         iconStyle={{ marginLeft: 5 }}
-        iconSize={44}
+        iconSize={40}
         numberOfLines={2}
       />
     );
