@@ -1,6 +1,8 @@
+import { Platform } from 'react-native';
+
 export const sansserif = {
-  light: 'Poppins-Light',
-  semibold: 'Poppins-SemiBold',
+  light: Platform.OS === ‘ios’ ? ‘Poppins-Light’ : ‘Poppins-300’,
+  semibold: Platform.OS === ‘ios’ ? ‘Poppins-SemiBold’ : ‘Poppins-600’,
 };
 
 const vars = {

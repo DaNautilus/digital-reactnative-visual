@@ -1,3 +1,8 @@
+### 2.0.1
+
+- fixes font for Android
+- fixes height of textfield for Android
+
 ### 2.0.0
 
 - using now the official Iconset provided by design.dormakaba.com

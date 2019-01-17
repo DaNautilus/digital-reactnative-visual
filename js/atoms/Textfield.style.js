@@ -11,7 +11,7 @@ export default StyleSheet.create({
     paddingTop: 5,
   },
   textfield: {
-    height: Platform.OS === 'ios' ? 30 : 40,
+    height: Platform.OS === 'ios' ? 30 : 42,
     fontSize: 16,
     fontFamily: vars.sansserif.light,
   },
