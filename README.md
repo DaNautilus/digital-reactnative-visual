@@ -32,7 +32,9 @@ Then run:
 ./node_modules/.bin/generate-icon ../digital-reactnative-visual/assets/css/dormakabaIcons.css --componentName=DokaIcon --fontFamily=dormakabaIcons --p .ico- > ./DokaIcon_new.js
 ```
 
-export the glyphmap to be importable by the all icons story
+copy the glyphmap from `./DokaIcon_new.js` to `./js/DokaIcon.js`
+
+make sure to export the glyphmap so it can be imported by the all icons story `./js/atoms/Icon.stories.js`
 
 # run on device
 
